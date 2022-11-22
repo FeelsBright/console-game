@@ -13,7 +13,7 @@ OUTPUT_IMAGE = [
         [".", ".", ".", ".", ".", ".", ".", "."],
         ]
 
-#Ставим фигуры по местам.
+#Ставим фигуры по местам, инициализируем заданные правилами игры переменные.
 OUTPUT_IMAGE[6][2] = 'O'
 OUTPUT_IMAGE[7][6] = 'H'
 OUTPUT_IMAGE[1][4] = 'W1'
@@ -30,13 +30,7 @@ for line_words in OUTPUT_IMAGE:
            print(word, end="")
        print("\n", end="")
 
-#Тест. Проверка на обращение к относительному индексу массива.
-#x = 1
-#y = 1
-#print(OUTPUT_IMAGE[6+x][2+y])
-#OUTPUT_IMAGE[0][1]
-
-#Определение позиции фигуры на поле
+#Определение позиции фигуры офицера на поле (в двумерном массиве)
 officer_x = 0
 officer_y = 0
 count_x = 0
@@ -51,24 +45,23 @@ for line_words in OUTPUT_IMAGE:
             officer_x = count_x % 8
             officer_y = count_y
 
+#Определение позиции фигуры коня на поле
+horse_x = 0
+horse_y = 0
+count_x = 0
+count_y = 0
+for line_words in OUTPUT_IMAGE:
+    count_y += 1
+    for word in line_words:
+        count_x += 1
+        if word == 'H':
+            count_x -= 1
+            count_y -= 1
+            horse_x = count_x % 8
+            horse_y = count_y
+
 
 while wolfs_amount > 0:
-
-    #Определяем позицию офицера в двумерном массиве
-    officer_x = 0
-    officer_y = 0
-    count_x = 0
-    count_y = 0
-    for line_words in OUTPUT_IMAGE:
-        count_y += 1
-        for word in line_words:
-            count_x += 1
-            if word == 'O':
-                count_x -= 1
-                count_y -= 1
-                officer_x = count_x % 8
-                officer_y = count_y
-
     #Считываем ход офицера
     officer_moveX = 0
     officer_moveY = 0
@@ -104,12 +97,13 @@ while wolfs_amount > 0:
         if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] != ".":
             print('Ошибка. Повторите ход.')
     
+    #Ставим офицера на новую клетку в массиве, обновляем его координаты.
     OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] = 'O'
     OUTPUT_IMAGE[officer_y][officer_x] = "."
     officer_x = officer_x + officer_moveX
     officer_y = officer_y + officer_moveY
 
-    #Атака офицера: выходим из цикла, когда получаем верное направление атаки.
+    #Атака офицера: выходим из цикла, когда получаем корректное направление атаки.
     officer_attack = 0
     while officer_attack not in ['вверх влево', 'вверх вправо', 'вниз влево', 'вниз вправо']:  
         officer_attack = input('В каком направлении атакует офицер? Возможные варианты: вверх влево, вверх вправо, вниз влево, вниз вправо.')
@@ -119,12 +113,15 @@ while wolfs_amount > 0:
             if OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W1':
                 hp_w1 = 0
                 OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
+                wolfs_amount -= 1
             elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W2':     
                 hp_w2 = 0
                 OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
+                wolfs_amount -= 1
             elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W3':
                 hp_w3 = 0
                 OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
+                wolfs_amount -= 1
             else:
                 print('Ошибка. Введите направление атаки.')
         if officer_attack == 'вверх вправо':
@@ -133,12 +130,15 @@ while wolfs_amount > 0:
             if OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W1':
                 hp_w1 = 0
                 OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
+                wolfs_amount -= 1
             elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W2':     
                 hp_w2 = 0
                 OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
+                wolfs_amount -= 1
             elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W3':
                 hp_w3 = 0
                 OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
+                wolfs_amount -= 1
             else:
                 print('Ошибка. Введите направление атаки.')
         if officer_attack == 'вниз влево':
@@ -147,12 +147,15 @@ while wolfs_amount > 0:
             if OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W1':
                 hp_w1 = 0
                 OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
+                wolfs_amount -= 1
             elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W2':     
                 hp_w2 = 0
                 OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
+                wolfs_amount -= 1
             elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W3':
                 hp_w3 = 0
                 OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
+                wolfs_amount -= 1
             else:
                 print('Ошибка. Введите направление атаки.')
         if officer_attack == 'вниз вправо':
@@ -161,11 +164,53 @@ while wolfs_amount > 0:
             if OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W1':
                 hp_w1 = 0
                 OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
+                wolfs_amount -= 1
             elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W2':     
                 hp_w2 = 0
                 OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
+                wolfs_amount -= 1
             elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W3':
                 hp_w3 = 0
                 OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
+                wolfs_amount -= 1
             else:
                 print('Ошибка. Введите направление атаки.')
+
+    #Ход коня    
+    horse_moveX = 0
+    horse_moveY = 0
+    while OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] != ".":
+        horse_move = input('Куда ходит конь? Возможные варианты: вверх на 2 и влево на 1, вверх на 2 и вправо на 1, влево на 2 и вверх на 1, влево на 2 и вниз на 1, вниз на 2 и влево на 1, вниз на 2 и вправо на 1, вправо на 2 и вниз на 1, вправо на 2 и вверх на 1\n')
+        if horse_move == 'вверх на 2 и влево на 1':
+            horse_moveX = -1
+            horse_moveY = -2
+        if horse_move == 'вверх на 2 и вправо на 1':
+            horse_moveX = +1
+            horse_moveY = -2
+        if horse_move == 'влево на 2 и вверх на 1':
+            horse_moveX = -1
+            horse_moveY = -1
+        if horse_move == 'влево на 2 и вниз на 1':
+            horse_moveX = -2
+            horse_moveY = +1  
+        if horse_move == 'вниз на 2 и влево на 1':
+            horse_moveX = -1
+            horse_moveY = +2
+        if horse_move == 'вниз на 2 и вправо на 1':
+            horse_moveX = +1
+            horse_moveY = +2
+        if horse_move == 'вправо на 2 и вниз на 1':
+            horse_moveX = +2
+            horse_moveY = +1
+        if horse_move == 'вправо на 2 и вверх на 1':
+            horse_moveX = +2
+            horse_moveY = -1
+        if OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] != ".":
+            print('Ошибка. Повторите ход.')
+
+    #Ставим коня на новую клетку в массиве, обновляем его координаты.
+    OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] = 'H'
+    OUTPUT_IMAGE[horse_y][horse_x] = "."
+    horse_x = horse_x + horse_moveX
+    horse_y = horse_y + horse_moveY
+
