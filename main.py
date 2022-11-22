@@ -103,6 +103,12 @@ while wolfs_amount > 0:
     officer_x = officer_x + officer_moveX
     officer_y = officer_y + officer_moveY
 
+    #Вывод игрового поля в консоль после хода офицера.
+    for line_words in OUTPUT_IMAGE:
+        for word in line_words:
+           print(word, end="")
+        print("\n", end="")
+
     #Атака офицера: выходим из цикла, когда получаем корректное направление атаки.
     officer_attack = 0
     while officer_attack not in ['вверх влево', 'вверх вправо', 'вниз влево', 'вниз вправо']:  
@@ -176,6 +182,12 @@ while wolfs_amount > 0:
             else:
                 print('Ошибка. Введите направление атаки.')
 
+    #Вывод игрового поля в консоль после атаки офицера.
+    for line_words in OUTPUT_IMAGE:
+        for word in line_words:
+           print(word, end="")
+        print("\n", end="")
+
     #Ход коня    
     horse_moveX = 0
     horse_moveY = 0
@@ -214,3 +226,237 @@ while wolfs_amount > 0:
     horse_x = horse_x + horse_moveX
     horse_y = horse_y + horse_moveY
 
+    #Вывод игрового поля в консоль после хода коня.
+    for line_words in OUTPUT_IMAGE:
+        for word in line_words:
+           print(word, end="")
+        print("\n", end="")
+
+    #Атака коня: выходим из цикла, когда получаем корректное направление атаки.
+    horse_attack = 0
+    while horse_attack not in ['вверх на 2 и влево на 1', 'вверх на 2 и вправо на 1', 'влево на 2 и вверх на 1', 'влево на 2 и вниз на 1', 'вниз на 2 и влево на 1', 'вниз на 2 и вправо на 1', 'вправо на 2 и вниз на 1', 'вправо на 2 и вверх на 1']:  
+        horse_attack = input('В каком направлении атакует конь? Возможные варианты: вверх на 2 и влево на 1, вверх на 2 и вправо на 1, влево на 2 и вверх на 1, влево на 2 и вниз на 1, вниз на 2 и влево на 1, вниз на 2 и вправо на 1, вправо на 2 и вниз на 1, вправо на 2 и вверх на 1.')
+        if horse_attack == 'вверх на 2 и влево на 1':
+            horse_attack_x = -1
+            horse_attack_y = -2
+            if OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W1':
+                hp_w1 -= 1
+                if hp_w1 == 0:
+                    wolfs_amount -= 1
+                    OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                    OUTPUT_IMAGE[horse_y][horse_x] = "."
+                    horse_x = horse_x + horse_attack_x
+                    horse_y = horse_y + horse_attack_y
+            elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W2':     
+                hp_w2 -= 1
+                if hp_w2 == 0:
+                    wolfs_amount -= 1
+                    OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                    OUTPUT_IMAGE[horse_y][horse_x] = "."
+                    horse_x = horse_x + horse_attack_x
+                    horse_y = horse_y + horse_attack_y
+            elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W3':
+                hp_w3 -= 1
+                if hp_w3 == 0:
+                    wolfs_amount -= 1
+                    OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                    OUTPUT_IMAGE[horse_y][horse_x] = "."
+                    horse_x = horse_x + horse_attack_x
+                    horse_y = horse_y + horse_attack_y
+            else:
+                print('Ошибка. Введите направление атаки.')
+        if horse_attack == 'вверх на 2 и вправо на 1':
+            horse_attack_x = +1
+            horse_attack_y = -2
+            if OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W1':
+                hp_w1 -= 1
+                if hp_w1 == 0:
+                    wolfs_amount -= 1
+                    OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                    OUTPUT_IMAGE[horse_y][horse_x] = "."
+                    horse_x = horse_x + horse_attack_x
+                    horse_y = horse_y + horse_attack_y
+            elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W2':     
+                hp_w2 -= 1
+                if hp_w2 == 0:
+                    wolfs_amount -= 1
+                    OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                    OUTPUT_IMAGE[horse_y][horse_x] = "."
+                    horse_x = horse_x + horse_attack_x
+                    horse_y = horse_y + horse_attack_y
+            elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W3':
+                hp_w3 -= 1
+                if hp_w3 == 0:
+                    wolfs_amount -= 1
+                    OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                    OUTPUT_IMAGE[horse_y][horse_x] = "."
+                    horse_x = horse_x + horse_attack_x
+                    horse_y = horse_y + horse_attack_y
+        if horse_attack == 'влево на 2 и вверх на 1':
+            horse_attack_x = -2
+            horse_attack_y = -1
+            if OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W1':
+                hp_w1 -= 1
+                if hp_w1 == 0:
+                    wolfs_amount -= 1
+                    OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                    OUTPUT_IMAGE[horse_y][horse_x] = "."
+                    horse_x = horse_x + horse_attack_x
+                    horse_y = horse_y + horse_attack_y
+            elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W2':     
+                hp_w2 -= 1
+                if hp_w2 == 0:
+                    wolfs_amount -= 1
+                    OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                    OUTPUT_IMAGE[horse_y][horse_x] = "."
+                    horse_x = horse_x + horse_attack_x
+                    horse_y = horse_y + horse_attack_y
+            elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W3':
+                hp_w3 -= 1
+                if hp_w3 == 0:
+                    wolfs_amount -= 1
+                    OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                    OUTPUT_IMAGE[horse_y][horse_x] = "."
+                    horse_x = horse_x + horse_attack_x
+                    horse_y = horse_y + horse_attack_y    
+        if horse_attack == 'влево на 2 и вниз на 1':
+            horse_attack_x = -2
+            horse_attack_y = +1
+            if OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W1':
+                hp_w1 -= 1
+                if hp_w1 == 0:
+                    wolfs_amount -= 1
+                    OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                    OUTPUT_IMAGE[horse_y][horse_x] = "."
+                    horse_x = horse_x + horse_attack_x
+                    horse_y = horse_y + horse_attack_y
+            elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W2':     
+                hp_w2 -= 1
+                if hp_w2 == 0:
+                    wolfs_amount -= 1
+                    OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                    OUTPUT_IMAGE[horse_y][horse_x] = "."
+                    horse_x = horse_x + horse_attack_x
+                    horse_y = horse_y + horse_attack_y
+            elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W3':
+                hp_w3 -= 1
+                if hp_w3 == 0:
+                    wolfs_amount -= 1
+                    OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                    OUTPUT_IMAGE[horse_y][horse_x] = "."
+                    horse_x = horse_x + horse_attack_x
+                    horse_y = horse_y + horse_attack_y
+        if horse_attack == 'вниз на 2 и влево на 1':
+            horse_attack_x = -1
+            horse_attack_y = +2
+            if OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W1':
+                hp_w1 -= 1
+                if hp_w1 == 0:
+                    wolfs_amount -= 1
+                    OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                    OUTPUT_IMAGE[horse_y][horse_x] = "."
+                    horse_x = horse_x + horse_attack_x
+                    horse_y = horse_y + horse_attack_y
+            elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W2':     
+                hp_w2 -= 1
+                if hp_w2 == 0:
+                    wolfs_amount -= 1
+                    OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                    OUTPUT_IMAGE[horse_y][horse_x] = "."
+                    horse_x = horse_x + horse_attack_x
+                    horse_y = horse_y + horse_attack_y
+            elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W3':
+                hp_w3 -= 1
+                if hp_w3 == 0:
+                    wolfs_amount -= 1
+                    OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                    OUTPUT_IMAGE[horse_y][horse_x] = "."
+                    horse_x = horse_x + horse_attack_x
+                    horse_y = horse_y + horse_attack_y    
+        if horse_attack == 'вниз на 2 и вправо на 1':
+            horse_attack_x = +1
+            horse_attack_y = +2
+            if OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W1':
+                hp_w1 -= 1
+                if hp_w1 == 0:
+                    wolfs_amount -= 1
+                    OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                    OUTPUT_IMAGE[horse_y][horse_x] = "."
+                    horse_x = horse_x + horse_attack_x
+                    horse_y = horse_y + horse_attack_y
+            elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W2':     
+                hp_w2 -= 1
+                if hp_w2 == 0:
+                    wolfs_amount -= 1
+                    OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                    OUTPUT_IMAGE[horse_y][horse_x] = "."
+                    horse_x = horse_x + horse_attack_x
+                    horse_y = horse_y + horse_attack_y
+            elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W3':
+                hp_w3 -= 1
+                if hp_w3 == 0:
+                    wolfs_amount -= 1
+                    OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                    OUTPUT_IMAGE[horse_y][horse_x] = "."
+                    horse_x = horse_x + horse_attack_x
+                    horse_y = horse_y + horse_attack_y      
+        if horse_attack == 'вправо на 2 и вниз на 1':
+            horse_attack_x = +2
+            horse_attack_y = +1
+            if OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W1':
+                hp_w1 -= 1
+                if hp_w1 == 0:
+                    wolfs_amount -= 1
+                    OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                    OUTPUT_IMAGE[horse_y][horse_x] = "."
+                    horse_x = horse_x + horse_attack_x
+                    horse_y = horse_y + horse_attack_y
+            elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W2':     
+                hp_w2 -= 1
+                if hp_w2 == 0:
+                    wolfs_amount -= 1
+                    OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                    OUTPUT_IMAGE[horse_y][horse_x] = "."
+                    horse_x = horse_x + horse_attack_x
+                    horse_y = horse_y + horse_attack_y
+            elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W3':
+                hp_w3 -= 1
+                if hp_w3 == 0:
+                    wolfs_amount -= 1
+                    OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                    OUTPUT_IMAGE[horse_y][horse_x] = "."
+                    horse_x = horse_x + horse_attack_x
+                    horse_y = horse_y + horse_attack_y  
+        if horse_attack == 'вправо на 2 и вверх на 1':
+            horse_attack_x = +2
+            horse_attack_y = -1
+            if OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W1':
+                hp_w1 -= 1
+                if hp_w1 == 0:
+                    wolfs_amount -= 1
+                    OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                    OUTPUT_IMAGE[horse_y][horse_x] = "."
+                    horse_x = horse_x + horse_attack_x
+                    horse_y = horse_y + horse_attack_y
+            elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W2':     
+                hp_w2 -= 1
+                if hp_w2 == 0:
+                    wolfs_amount -= 1
+                    OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                    OUTPUT_IMAGE[horse_y][horse_x] = "."
+                    horse_x = horse_x + horse_attack_x
+                    horse_y = horse_y + horse_attack_y
+            elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W3':
+                hp_w3 -= 1
+                if hp_w3 == 0:
+                    wolfs_amount -= 1
+                    OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                    OUTPUT_IMAGE[horse_y][horse_x] = "."
+                    horse_x = horse_x + horse_attack_x
+                    horse_y = horse_y + horse_attack_y  
+
+    #Вывод игрового поля в консоль после атаки коня.
+    for line_words in OUTPUT_IMAGE:
+        for word in line_words:
+           print(word, end="")
+        print("\n", end="")
