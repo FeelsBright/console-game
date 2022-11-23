@@ -5,7 +5,6 @@
 #print('🟩') '\U0001F7E9'
 
 from random import randint
-from time import sleep
 from os import system
 
 #OUTPUT_IMAGE - двумерный массив, который содержит строку в качестве первого аргумента и место в этой строке - в качестве второго.
@@ -33,6 +32,9 @@ wolfs_amount = 3
 hp_w1 = 2
 hp_w2 = 2
 hp_w3 = 2
+
+#Очистка консоли, чтобы игра начиналась "с чистого листа".
+system("cls||clear")
 
 #Вывод игрового поля в консоль.
 for line_words in OUTPUT_IMAGE:
@@ -79,7 +81,7 @@ for line_words in OUTPUT_IMAGE:
     count_y += 1
     for word in line_words:
         count_x += 1
-        if word == 'H':
+        if word == 'W1':
             count_x -= 1
             count_y -= 1
             w1_x = count_x % 8
@@ -94,7 +96,7 @@ for line_words in OUTPUT_IMAGE:
     count_y += 1
     for word in line_words:
         count_x += 1
-        if word == 'H':
+        if word == 'W2':
             count_x -= 1
             count_y -= 1
             w2_x = count_x % 8
@@ -109,7 +111,7 @@ for line_words in OUTPUT_IMAGE:
     count_y += 1
     for word in line_words:
         count_x += 1
-        if word == 'H':
+        if word == 'W3':
             count_x -= 1
             count_y -= 1
             w3_x = count_x % 8
@@ -117,11 +119,8 @@ for line_words in OUTPUT_IMAGE:
 
 
 while wolfs_amount > 0:
-    #Очистка консоли и пауза перед ходом для иммерсивного опыта игрока
-    sleep(1)
-    system("cls||clear")
 
-    #Считываем ход офицера
+    #Считываем ход офицера.
     officer_moveX = 0
     officer_moveY = 0
     while OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] != ".":
@@ -249,7 +248,8 @@ while wolfs_amount > 0:
            print(word, end="")
         print("\n", end="")
 
-    #Ход коня    
+
+    #Ход коня.    
     horse_moveX = 0
     horse_moveY = 0
     while OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] != ".":
@@ -524,7 +524,8 @@ while wolfs_amount > 0:
            print(word, end="")
         print("\n", end="")
 
-    #Ход первого волка
+
+    #Ход первого волка.
     w1_moveX = 0
     w1_moveY = 0
     while OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] != ".":
@@ -599,7 +600,7 @@ while wolfs_amount > 0:
                 w1_x = w1_x + w1_moveX
                 w1_y = w1_y + w1_moveY
         
-    #Ход второго волка
+    #Ход второго волка.
     w2_moveX = 0
     w2_moveY = 0
     while OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] != ".":
@@ -674,7 +675,7 @@ while wolfs_amount > 0:
                 w2_x = w2_x + w2_moveX
                 w2_y = w2_y + w2_moveY    
     
-    #Ход третьего волка
+    #Ход третьего волка.
     w3_moveX = 0
     w3_moveY = 0
     while OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] != ".":
@@ -755,4 +756,5 @@ while wolfs_amount > 0:
            print(word, end="")
         print("\n", end="")
 
-print('Вы победили всех волков')
+
+print('Ура, вы победили всех волков!')
