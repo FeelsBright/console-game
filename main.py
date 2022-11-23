@@ -4,6 +4,7 @@
 #print('👮') '\U0001F46E'
 #print('🟩') '\U0001F7E9'
 
+from random import randint
 #OUTPUT_IMAGE - двумерный массив, который содержит строку в качестве первого аргумента и место в этой строке - в качестве второго.
 #Получается, что координата "у" увеличивается к низу выводимого в консоль изображения, "х" - стандартно, увеличивается вправо 
 #относительно изображения, причем при обращении к этому двумерному массиву первым аргументом обращаемся к "у", 
@@ -65,6 +66,51 @@ for line_words in OUTPUT_IMAGE:
             count_y -= 1
             horse_x = count_x % 8
             horse_y = count_y
+
+#Определение позиции фигуры первого волка на поле
+w1_x = 0
+w1_y = 0
+count_x = 0
+count_y = 0
+for line_words in OUTPUT_IMAGE:
+    count_y += 1
+    for word in line_words:
+        count_x += 1
+        if word == 'H':
+            count_x -= 1
+            count_y -= 1
+            w1_x = count_x % 8
+            w1_y = count_y
+
+#Определение позиции фигуры второго волка на поле
+w2_x = 0
+w2_y = 0
+count_x = 0
+count_y = 0
+for line_words in OUTPUT_IMAGE:
+    count_y += 1
+    for word in line_words:
+        count_x += 1
+        if word == 'H':
+            count_x -= 1
+            count_y -= 1
+            w2_x = count_x % 8
+            w2_y = count_y
+
+#Определение позиции фигуры третьего волка на поле
+w3_x = 0
+w3_y = 0
+count_x = 0
+count_y = 0
+for line_words in OUTPUT_IMAGE:
+    count_y += 1
+    for word in line_words:
+        count_x += 1
+        if word == 'H':
+            count_x -= 1
+            count_y -= 1
+            w3_x = count_x % 8
+            w3_y = count_y
 
 
 while wolfs_amount > 0:
@@ -470,3 +516,236 @@ while wolfs_amount > 0:
         for word in line_words:
            print(word, end="")
         print("\n", end="")
+
+    #Ход первого волка
+    w1_moveX = 0
+    w1_moveY = 0
+    while OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] != ".":
+        w1_moveX = 0
+        w1_moveY = 0
+        w1_move = randint(1, 9)
+        if w1_move == 1:
+            w1_moveX = -1
+            w1_moveY = -1
+            if OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] == ".":  
+                OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] = 'W1'  
+                OUTPUT_IMAGE[w1_y][w1_x] = "."
+                w1_x = w1_x + w1_moveX
+                w1_y = w1_y + w1_moveY
+        if w1_move == 2:
+            w1_moveX = 0
+            w1_moveY = -1
+            if OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] == ".":  
+                OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] = 'W1'  
+                OUTPUT_IMAGE[w1_y][w1_x] = "."
+                w1_x = w1_x + w1_moveX
+                w1_y = w1_y + w1_moveY
+        if w1_move == 3:
+            w1_moveX = +1
+            w1_moveY = -1
+            if OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] == ".":  
+                OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] = 'W1'  
+                OUTPUT_IMAGE[w1_y][w1_x] = "."
+                w1_x = w1_x + w1_moveX
+                w1_y = w1_y + w1_moveY
+        if w1_move == 4:
+            w1_moveX = -1
+            w1_moveY = 0
+            if OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] == ".":  
+                OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] = 'W1'  
+                OUTPUT_IMAGE[w1_y][w1_x] = "."
+                w1_x = w1_x + w1_moveX
+                w1_y = w1_y + w1_moveY
+        if w1_move == 5:
+            w1_moveX = 0
+            w1_moveY = 0
+        if w1_move == 6:
+            w1_moveX = +1
+            w1_moveY = 0
+            if OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] == ".":  
+                OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] = 'W1'  
+                OUTPUT_IMAGE[w1_y][w1_x] = "."
+                w1_x = w1_x + w1_moveX
+                w1_y = w1_y + w1_moveY
+        if w1_move == 7:
+            w1_moveX = -1
+            w1_moveY = +1
+            if OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] == ".":  
+                OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] = 'W1'  
+                OUTPUT_IMAGE[w1_y][w1_x] = "."
+                w1_x = w1_x + w1_moveX
+                w1_y = w1_y + w1_moveY
+        if w1_move == 8:
+            w1_moveX = 0
+            w1_moveY = +1
+            if OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] == ".":  
+                OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] = 'W1'  
+                OUTPUT_IMAGE[w1_y][w1_x] = "."
+                w1_x = w1_x + w1_moveX
+                w1_y = w1_y + w1_moveY
+        if w1_move == 9:
+            w1_moveX = +1
+            w1_moveY = +1
+            if OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] == ".":  
+                OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] = 'W1'  
+                OUTPUT_IMAGE[w1_y][w1_x] = "."
+                w1_x = w1_x + w1_moveX
+                w1_y = w1_y + w1_moveY
+        
+    #Ход второго волка
+    w2_moveX = 0
+    w2_moveY = 0
+    while OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] != ".":
+        w2_moveX = 0
+        w2_moveY = 0
+        w2_move = randint(1, 9)
+        if w2_move == 1:
+            w2_moveX = -1
+            w2_moveY = -1
+            if OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] == ".":  
+                OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] = 'W2'  
+                OUTPUT_IMAGE[w2_y][w2_x] = "."
+                w2_x = w2_x + w2_moveX
+                w2_y = w2_y + w2_moveY
+        if w2_move == 2:
+            w2_moveX = 0
+            w2_moveY = -1
+            if OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] == ".":  
+                OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] = 'W2'  
+                OUTPUT_IMAGE[w2_y][w2_x] = "."
+                w2_x = w2_x + w2_moveX
+                w2_y = w2_y + w2_moveY
+        if w2_move == 3:
+            w2_moveX = +1
+            w2_moveY = -1
+            if OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] == ".":  
+                OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] = 'W2'  
+                OUTPUT_IMAGE[w2_y][w2_x] = "."
+                w2_x = w2_x + w2_moveX
+                w2_y = w2_y + w2_moveY
+        if w2_move == 4:
+            w2_moveX = -1
+            w2_moveY = 0
+            if OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] == ".":  
+                OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] = 'W2'  
+                OUTPUT_IMAGE[w2_y][w2_x] = "."
+                w2_x = w2_x + w2_moveX
+                w2_y = w2_y + w2_moveY
+        if w2_move == 5:
+            w2_moveX = 0
+            w2_moveY = 0
+        if w2_move == 6:
+            w2_moveX = +1
+            w2_moveY = 0
+            if OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] == ".":  
+                OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] = 'W2'  
+                OUTPUT_IMAGE[w2_y][w2_x] = "."
+                w2_x = w2_x + w2_moveX
+                w2_y = w2_y + w2_moveY
+        if w2_move == 7:
+            w2_moveX = -1
+            w2_moveY = +1
+            if OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] == ".":  
+                OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] = 'W2'  
+                OUTPUT_IMAGE[w2_y][w2_x] = "."
+                w2_x = w2_x + w2_moveX
+                w2_y = w2_y + w2_moveY
+        if w2_move == 8:
+            w2_moveX = 0
+            w2_moveY = +1
+            if OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] == ".":  
+                OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] = 'W2'  
+                OUTPUT_IMAGE[w2_y][w2_x] = "."
+                w2_x = w2_x + w2_moveX
+                w2_y = w2_y + w2_moveY
+        if w2_move == 9:
+            w2_moveX = +1
+            w2_moveY = +1
+            if OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] == ".":  
+                OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] = 'W2'  
+                OUTPUT_IMAGE[w2_y][w2_x] = "."
+                w2_x = w2_x + w2_moveX
+                w2_y = w2_y + w2_moveY    
+    
+    #Ход третьего волка
+    w3_moveX = 0
+    w3_moveY = 0
+    while OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] != ".":
+        w3_moveX = 0
+        w3_moveY = 0
+        w3_move = randint(1, 9)
+        if w3_move == 1:
+            w3_moveX = -1
+            w3_moveY = -1
+            if OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] == ".":  
+                OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] = 'W3'  
+                OUTPUT_IMAGE[w3_y][w3_x] = "."
+                w3_x = w3_x + w3_moveX
+                w3_y = w3_y + w3_moveY
+        if w3_move == 2:
+            w3_moveX = 0
+            w3_moveY = -1
+            if OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] == ".":  
+                OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] = 'W3'  
+                OUTPUT_IMAGE[w3_y][w3_x] = "."
+                w3_x = w3_x + w3_moveX
+                w3_y = w3_y + w3_moveY
+        if w3_move == 3:
+            w3_moveX = +1
+            w3_moveY = -1
+            if OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] == ".":  
+                OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] = 'W3'  
+                OUTPUT_IMAGE[w3_y][w3_x] = "."
+                w3_x = w3_x + w3_moveX
+                w3_y = w3_y + w3_moveY
+        if w3_move == 4:
+            w3_moveX = -1
+            w3_moveY = 0
+            if OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] == ".":  
+                OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] = 'W3'  
+                OUTPUT_IMAGE[w3_y][w3_x] = "."
+                w3_x = w3_x + w3_moveX
+                w3_y = w3_y + w3_moveY
+        if w3_move == 5:
+            w3_moveX = 0
+            w3_moveY = 0
+        if w3_move == 6:
+            w3_moveX = +1
+            w3_moveY = 0
+            if OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] == ".":  
+                OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] = 'W3'  
+                OUTPUT_IMAGE[w3_y][w3_x] = "."
+                w3_x = w3_x + w3_moveX
+                w3_y = w3_y + w3_moveY
+        if w3_move == 7:
+            w3_moveX = -1
+            w3_moveY = +1
+            if OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] == ".":  
+                OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] = 'W3'  
+                OUTPUT_IMAGE[w3_y][w3_x] = "."
+                w3_x = w3_x + w3_moveX
+                w3_y = w3_y + w3_moveY
+        if w3_move == 8:
+            w3_moveX = 0
+            w3_moveY = +1
+            if OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] == ".":  
+                OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] = 'W3'  
+                OUTPUT_IMAGE[w3_y][w3_x] = "."
+                w3_x = w3_x + w3_moveX
+                w3_y = w3_y + w3_moveY
+        if w3_move == 9:
+            w3_moveX = +1
+            w3_moveY = +1
+            if OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] == ".":  
+                OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] = 'W3'  
+                OUTPUT_IMAGE[w3_y][w3_x] = "."
+                w3_x = w3_x + w3_moveX
+                w3_y = w3_y + w3_moveY
+    
+    #Вывод игрового поля в консоль после того, как все 3 волка походили.
+    for line_words in OUTPUT_IMAGE:
+        for word in line_words:
+           print(word, end="")
+        print("\n", end="")
+
+print('Вы победили всех волков')
