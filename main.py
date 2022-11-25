@@ -134,7 +134,7 @@ while wolfs_amount > 0:
                     flag_officer = True
             else:
                 print('Поле занято другим существом. Выберите другую клетку.')
-        if officer_move == 'вверх':
+        elif officer_move == 'вверх':
             officer_moveX = 0
             officer_moveY = -1
             if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
@@ -149,7 +149,7 @@ while wolfs_amount > 0:
                     flag_officer = True
             else:
                 print('Поле занято другим существом. Выберите другую клетку.')
-        if officer_move == 'вверх вправо':
+        elif officer_move == 'вверх вправо':
             officer_moveX = +1
             officer_moveY = -1
             if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
@@ -164,7 +164,7 @@ while wolfs_amount > 0:
                     flag_officer = True
             else:
                 print('Поле занято другим существом. Выберите другую клетку.')
-        if officer_move == 'влево':
+        elif officer_move == 'влево':
             officer_moveX = -1
             officer_moveY = 0   
             if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
@@ -179,10 +179,10 @@ while wolfs_amount > 0:
                     flag_officer = True
             else:
                 print('Поле занято другим существом. Выберите другую клетку.')
-        if officer_move == 'остаться на месте':
+        elif officer_move == 'остаться на месте':
             officer_moveX = 0
             officer_moveY = 0
-        if officer_move == 'вправо':
+        elif officer_move == 'вправо':
             officer_moveX = +1
             officer_moveY = 0
             if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
@@ -197,7 +197,7 @@ while wolfs_amount > 0:
                     flag_officer = True
             else:
                 print('Поле занято другим существом. Выберите другую клетку.')
-        if officer_move == 'вниз влево':
+        elif officer_move == 'вниз влево':
             officer_moveX = -1
             officer_moveY = +1
             if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
@@ -212,7 +212,7 @@ while wolfs_amount > 0:
                     flag_officer = True
             else:
                 print('Поле занято другим существом. Выберите другую клетку.')
-        if officer_move == 'вниз':
+        elif officer_move == 'вниз':
             officer_moveX = 0
             officer_moveY = +1
             if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
@@ -227,7 +227,7 @@ while wolfs_amount > 0:
                     flag_officer = True
             else:
                 print('Поле занято другим существом. Выберите другую клетку.')
-        if officer_move == 'вниз вправо':
+        elif officer_move == 'вниз вправо':
             officer_moveX = +1
             officer_moveY = +1
             if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
@@ -257,7 +257,7 @@ while wolfs_amount > 0:
     while flag_officer_attack == False:  
         officer_attack = input('В каком направлении атакует офицер? Возможные варианты: вверх влево, вверх вправо, вниз влево, вниз вправо, пропуск атаки.\n')
         if officer_attack == 'пропуск атаки':
-            pass
+            break
         elif officer_attack == 'вверх влево':
             officer_attack_x = -1
             officer_attack_y = -1
@@ -288,7 +288,7 @@ while wolfs_amount > 0:
                         hp_w3 = 0
                         wolfs_amount -= 1
             else:
-                print('Ошибка. Введите корректное направление атаки.')
+                print('Ошибка. Введите поле, на котором присутствуют объекты для атаки или выберите пропуск хода.')
         elif officer_attack == 'вверх вправо':
             officer_attack_x = +1
             officer_attack_y = -1
@@ -319,7 +319,7 @@ while wolfs_amount > 0:
                         hp_w3 = 0
                         wolfs_amount -= 1
             else:
-                print('Ошибка. Введите корректное направление атаки.')
+                print('Ошибка. Введите поле, на котором присутствуют объекты для атаки или выберите пропуск хода.')
         elif officer_attack == 'вниз влево':
             officer_attack_x = -1
             officer_attack_y = +1
@@ -350,7 +350,7 @@ while wolfs_amount > 0:
                         hp_w3 = 0
                         wolfs_amount -= 1
             else:
-                print('Ошибка. Введите корректное направление атаки.')
+                print('Ошибка. Введите поле, на котором присутствуют объекты для атаки или выберите пропуск хода.')
         elif officer_attack == 'вниз вправо':
             officer_attack_x = +1
             officer_attack_y = +1
@@ -381,7 +381,7 @@ while wolfs_amount > 0:
                         hp_w3 = 0
                         wolfs_amount -= 1
             else:
-                print('Ошибка. Введите корректное направление атаки.')
+                print('Ошибка. Введите поле, на котором присутствуют объекты для атаки или выберите пропуск хода.')
         else: 
             print('Введите корректное направление атаки офицера из перечисленного списка.')
 
@@ -531,16 +531,20 @@ while wolfs_amount > 0:
     #Атака коня: выходим из цикла, когда получаем корректное направление атаки.
     horse_attack = 0
     flag_horse_attack = False
+    flag_enemy = False
     while flag_horse_attack == False:  
         horse_attack = input('В каком направлении атакует конь? Возможные варианты: вверх на 2 и влево на 1, вверх на 2 и вправо на 1, влево на 2 и вверх на 1, влево на 2 и вниз на 1, вниз на 2 и влево на 1, вниз на 2 и вправо на 1, вправо на 2 и вниз на 1, вправо на 2 и вверх на 1, пропуск атаки.\n')
         if horse_attack == 'пропуск атаки':
-            pass
+            break
         if horse_attack == 'вверх на 2 и влево на 1':
             horse_attack_x = -1
             horse_attack_y = -2
             try:   
-                if OUTPUT_IMAGE[horse_y + horse_attack_x][horse_x + horse_attack_y] in ['O', 'H', '.']: 
-                    print('Выберите корректную цель для атаки.')
+                if OUTPUT_IMAGE[horse_y + horse_attack_x][horse_x + horse_attack_y] not in ['O', 'H', '.']: 
+                    flag_enemy = True
+                else:
+                    print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
+                    continue
             except IndexError:
                 print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.')
             else:           
@@ -577,8 +581,11 @@ while wolfs_amount > 0:
             horse_attack_x = +1
             horse_attack_y = -2
             try:   
-                if OUTPUT_IMAGE[horse_y + horse_attack_x][horse_x + horse_attack_y] in ['O', 'H', '.']: 
-                    print('Выберите корректную цель для атаки.')
+                if OUTPUT_IMAGE[horse_y + horse_attack_x][horse_x + horse_attack_y] not in ['O', 'H', '.']: 
+                    flag_enemy = True
+                else:
+                    print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
+                    continue
             except IndexError:
                 print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.')
             else:           
@@ -615,8 +622,11 @@ while wolfs_amount > 0:
             horse_attack_x = -2
             horse_attack_y = -1
             try:   
-                if OUTPUT_IMAGE[horse_y + horse_attack_x][horse_x + horse_attack_y] in ['O', 'H', '.']: 
-                    print('Выберите корректную цель для атаки.')
+                if OUTPUT_IMAGE[horse_y + horse_attack_x][horse_x + horse_attack_y] not in ['O', 'H', '.']: 
+                    flag_enemy = True
+                else:
+                    print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
+                    continue
             except IndexError:
                 print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.')
             else:           
@@ -653,8 +663,11 @@ while wolfs_amount > 0:
             horse_attack_x = -2
             horse_attack_y = +1
             try:   
-                if OUTPUT_IMAGE[horse_y + horse_attack_x][horse_x + horse_attack_y] in ['O', 'H', '.']: 
-                    print('Выберите корректную цель для атаки.')
+                if OUTPUT_IMAGE[horse_y + horse_attack_x][horse_x + horse_attack_y] not in ['O', 'H', '.']: 
+                    flag_enemy = True
+                else:
+                    print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
+                    continue
             except IndexError:
                 print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.')
             else:           
@@ -691,8 +704,11 @@ while wolfs_amount > 0:
             horse_attack_x = -1
             horse_attack_y = +2
             try:   
-                if OUTPUT_IMAGE[horse_y + horse_attack_x][horse_x + horse_attack_y] in ['O', 'H', '.']: 
-                    print('Выберите корректную цель для атаки.')
+                if OUTPUT_IMAGE[horse_y + horse_attack_x][horse_x + horse_attack_y] not in ['O', 'H', '.']: 
+                    flag_enemy = True
+                else:
+                    print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
+                    continue
             except IndexError:
                 print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.')
             else:           
@@ -729,8 +745,11 @@ while wolfs_amount > 0:
             horse_attack_x = +1
             horse_attack_y = +2
             try:   
-                if OUTPUT_IMAGE[horse_y + horse_attack_x][horse_x + horse_attack_y] in ['O', 'H', '.']: 
-                    print('Выберите корректную цель для атаки.')
+                if OUTPUT_IMAGE[horse_y + horse_attack_x][horse_x + horse_attack_y] not in ['O', 'H', '.']: 
+                    flag_enemy = True
+                else:
+                    print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
+                    continue
             except IndexError:
                 print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.')
             else:           
@@ -767,8 +786,11 @@ while wolfs_amount > 0:
             horse_attack_x = +2
             horse_attack_y = +1
             try:   
-                if OUTPUT_IMAGE[horse_y + horse_attack_x][horse_x + horse_attack_y] in ['O', 'H', '.']: 
-                    print('Выберите корректную цель для атаки.')
+                if OUTPUT_IMAGE[horse_y + horse_attack_x][horse_x + horse_attack_y] not in ['O', 'H', '.']: 
+                    flag_enemy = True
+                else:
+                    print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
+                    continue
             except IndexError:
                 print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.')
             else:           
@@ -805,8 +827,11 @@ while wolfs_amount > 0:
             horse_attack_x = +2
             horse_attack_y = -1
             try:   
-                if OUTPUT_IMAGE[horse_y + horse_attack_x][horse_x + horse_attack_y] in ['O', 'H', '.']: 
-                    print('Выберите корректную цель для атаки.')
+                if OUTPUT_IMAGE[horse_y + horse_attack_x][horse_x + horse_attack_y] not in ['O', 'H', '.']: 
+                    flag_enemy = True
+                else:
+                    print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
+                    continue
             except IndexError:
                 print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.')
             else:           
@@ -848,6 +873,7 @@ while wolfs_amount > 0:
            print(word, end="")
         print("\n", end="")
 
+    print('\n')
 
     #Ход первого волка.
     w1_moveX = 0
@@ -1204,7 +1230,7 @@ while wolfs_amount > 0:
         print("\n", end="")
 
 
-print('Ура, вы победили всех волков!')
+print('Ура, вы победили всех волков!\n')
 
 #Заготовки картинок эмоджи и их коды в юникоде для обозначения существ на игровом поле для готовой программы:
 #print('🐺') то же самое, что print('\U0001F43A')
