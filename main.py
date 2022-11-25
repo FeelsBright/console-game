@@ -122,126 +122,134 @@ while wolfs_amount > 0:
         if officer_move == 'вверх влево':
             officer_moveX = -1
             officer_moveY = -1
-            if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
-                try:
+            try:
+                if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
                     OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] = 'O'
-                except IndexError:
-                    print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
                 else:
-                    OUTPUT_IMAGE[officer_y][officer_x] = "."
-                    officer_x = officer_x + officer_moveX
-                    officer_y = officer_y + officer_moveY
-                    flag_officer = True
+                    print('Поле занято другим существом. Выберите другую клетку.')
+                    continue
+            except IndexError:
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
             else:
-                print('Поле занято другим существом. Выберите другую клетку.')
+                OUTPUT_IMAGE[officer_y][officer_x] = "."
+                officer_x = officer_x + officer_moveX
+                officer_y = officer_y + officer_moveY
+                flag_officer = True
         elif officer_move == 'вверх':
             officer_moveX = 0
             officer_moveY = -1
-            if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
-                try:
+            try:
+                if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
                     OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] = 'O'
-                except IndexError:
-                    print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
                 else:
-                    OUTPUT_IMAGE[officer_y][officer_x] = "."
-                    officer_x = officer_x + officer_moveX
-                    officer_y = officer_y + officer_moveY
-                    flag_officer = True
+                    print('Поле занято другим существом. Выберите другую клетку.')
+                    continue
+            except IndexError:
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
             else:
-                print('Поле занято другим существом. Выберите другую клетку.')
+                OUTPUT_IMAGE[officer_y][officer_x] = "."
+                officer_x = officer_x + officer_moveX
+                officer_y = officer_y + officer_moveY
+                flag_officer = True
         elif officer_move == 'вверх вправо':
             officer_moveX = +1
             officer_moveY = -1
-            if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
-                try:
+            try:
+                if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
                     OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] = 'O'
-                except IndexError:
-                    print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
                 else:
-                    OUTPUT_IMAGE[officer_y][officer_x] = "."
-                    officer_x = officer_x + officer_moveX
-                    officer_y = officer_y + officer_moveY
-                    flag_officer = True
+                    print('Поле занято другим существом. Выберите другую клетку.')
+                    continue
+            except IndexError:
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
             else:
-                print('Поле занято другим существом. Выберите другую клетку.')
+                OUTPUT_IMAGE[officer_y][officer_x] = "."
+                officer_x = officer_x + officer_moveX
+                officer_y = officer_y + officer_moveY
+                flag_officer = True
         elif officer_move == 'влево':
             officer_moveX = -1
             officer_moveY = 0   
-            if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
-                try:
+            try:
+                if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
                     OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] = 'O'
-                except IndexError:
-                    print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
                 else:
-                    OUTPUT_IMAGE[officer_y][officer_x] = "."
-                    officer_x = officer_x + officer_moveX
-                    officer_y = officer_y + officer_moveY
-                    flag_officer = True
+                    print('Поле занято другим существом. Выберите другую клетку.')
+                    continue
+            except IndexError:
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
             else:
-                print('Поле занято другим существом. Выберите другую клетку.')
+                OUTPUT_IMAGE[officer_y][officer_x] = "."
+                officer_x = officer_x + officer_moveX
+                officer_y = officer_y + officer_moveY
+                flag_officer = True
         elif officer_move == 'остаться на месте':
             officer_moveX = 0
             officer_moveY = 0
         elif officer_move == 'вправо':
             officer_moveX = +1
             officer_moveY = 0
-            if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
-                try:
+            try:
+                if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
                     OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] = 'O'
-                except IndexError:
-                    print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
                 else:
-                    OUTPUT_IMAGE[officer_y][officer_x] = "."
-                    officer_x = officer_x + officer_moveX
-                    officer_y = officer_y + officer_moveY
-                    flag_officer = True
+                    print('Поле занято другим существом. Выберите другую клетку.')
+                    continue
+            except IndexError:
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
             else:
-                print('Поле занято другим существом. Выберите другую клетку.')
+                OUTPUT_IMAGE[officer_y][officer_x] = "."
+                officer_x = officer_x + officer_moveX
+                officer_y = officer_y + officer_moveY
+                flag_officer = True
         elif officer_move == 'вниз влево':
             officer_moveX = -1
             officer_moveY = +1
-            if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
-                try:
+            try:
+                if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
                     OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] = 'O'
-                except IndexError:
-                    print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
                 else:
-                    OUTPUT_IMAGE[officer_y][officer_x] = "."
-                    officer_x = officer_x + officer_moveX
-                    officer_y = officer_y + officer_moveY
-                    flag_officer = True
+                    print('Поле занято другим существом. Выберите другую клетку.')
+                    continue
+            except IndexError:
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
             else:
-                print('Поле занято другим существом. Выберите другую клетку.')
+                OUTPUT_IMAGE[officer_y][officer_x] = "."
+                officer_x = officer_x + officer_moveX
+                officer_y = officer_y + officer_moveY
+                flag_officer = True
         elif officer_move == 'вниз':
             officer_moveX = 0
             officer_moveY = +1
-            if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
-                try:
+            try:
+                if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
                     OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] = 'O'
-                except IndexError:
-                    print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
                 else:
-                    OUTPUT_IMAGE[officer_y][officer_x] = "."
-                    officer_x = officer_x + officer_moveX
-                    officer_y = officer_y + officer_moveY
-                    flag_officer = True
+                    print('Поле занято другим существом. Выберите другую клетку.')
+                    continue
+            except IndexError:
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
             else:
-                print('Поле занято другим существом. Выберите другую клетку.')
+                OUTPUT_IMAGE[officer_y][officer_x] = "."
+                officer_x = officer_x + officer_moveX
+                officer_y = officer_y + officer_moveY
+                flag_officer = True
         elif officer_move == 'вниз вправо':
             officer_moveX = +1
             officer_moveY = +1
-            if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
-                try:
+            try:
+                if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
                     OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] = 'O'
-                except IndexError:
-                    print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
                 else:
-                    OUTPUT_IMAGE[officer_y][officer_x] = "."
-                    officer_x = officer_x + officer_moveX
-                    officer_y = officer_y + officer_moveY
-                    flag_officer = True
+                    print('Поле занято другим существом. Выберите другую клетку.')
+                    continue
+            except IndexError:
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
             else:
-                print('Поле занято другим существом. Выберите другую клетку.')
+                OUTPUT_IMAGE[officer_y][officer_x] = "."
+                officer_x = officer_x + officer_moveX
+                officer_y = officer_y + officer_moveY
+                flag_officer = True
         else:
             print('Введите корректное направление движения офицера.')
 
@@ -261,127 +269,99 @@ while wolfs_amount > 0:
         elif officer_attack == 'вверх влево':
             officer_attack_x = -1
             officer_attack_y = -1
-            if OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] not in ['H', 'O', "."]:
-                if OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W1':
-                    try:
+            try:
+                if OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] not in ['H', 'O', "."]:
+                    if OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W1':
                         OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
-                    except IndexError:
-                        print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-                    else:
                         hp_w1 = 0
                         wolfs_amount -= 1
                         flag_officer_attack = True
-                elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W2':
-                    try:
+                    elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W2':
                         OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
-                    except IndexError:
-                        print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-                    else:
                         hp_w2 = 0
                         wolfs_amount -= 1
-                elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W3':
-                    try:
+                        flag_officer_attack = True
+                    elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W3':
                         OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
-                    except IndexError:
-                        print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-                    else:
                         hp_w3 = 0
                         wolfs_amount -= 1
-            else:
-                print('Ошибка. Введите поле, на котором присутствуют объекты для атаки или выберите пропуск хода.')
+                        flag_officer_attack = True
+                    else:
+                        print('Ошибка. Введите поле, на котором присутствуют объекты для атаки или выберите пропуск хода.')
+            except IndexError:
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для атаки')    
         elif officer_attack == 'вверх вправо':
             officer_attack_x = +1
             officer_attack_y = -1
-            if OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] not in ['H', 'O', "."]:
-                if OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W1':
-                    try:
+            try:
+                if OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] not in ['H', 'O', "."]:
+                    if OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W1':
                         OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
-                    except IndexError:
-                        print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-                    else:
                         hp_w1 = 0
                         wolfs_amount -= 1
                         flag_officer_attack = True
-                elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W2':
-                    try:
+                    elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W2':
                         OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
-                    except IndexError:
-                        print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-                    else:
                         hp_w2 = 0
                         wolfs_amount -= 1
-                elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W3':
-                    try:
+                        flag_officer_attack = True
+                    elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W3':
                         OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
-                    except IndexError:
-                        print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-                    else:
                         hp_w3 = 0
                         wolfs_amount -= 1
-            else:
-                print('Ошибка. Введите поле, на котором присутствуют объекты для атаки или выберите пропуск хода.')
+                        flag_officer_attack = True
+                    else:
+                        print('Ошибка. Введите поле, на котором присутствуют объекты для атаки или выберите пропуск хода.')
+            except IndexError:
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для атаки') 
         elif officer_attack == 'вниз влево':
             officer_attack_x = -1
             officer_attack_y = +1
-            if OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] not in ['H', 'O', "."]:
-                if OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W1':
-                    try:
+            try:
+                if OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] not in ['H', 'O', "."]:
+                    if OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W1':
                         OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
-                    except IndexError:
-                        print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-                    else:
                         hp_w1 = 0
                         wolfs_amount -= 1
                         flag_officer_attack = True
-                elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W2':
-                    try:
+                    elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W2':
                         OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
-                    except IndexError:
-                        print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-                    else:
                         hp_w2 = 0
                         wolfs_amount -= 1
-                elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W3':
-                    try:
+                        flag_officer_attack = True
+                    elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W3':
                         OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
-                    except IndexError:
-                        print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-                    else:
                         hp_w3 = 0
                         wolfs_amount -= 1
-            else:
-                print('Ошибка. Введите поле, на котором присутствуют объекты для атаки или выберите пропуск хода.')
+                        flag_officer_attack = True
+                    else:
+                        print('Ошибка. Введите поле, на котором присутствуют объекты для атаки или выберите пропуск хода.')
+            except IndexError:
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для атаки') 
         elif officer_attack == 'вниз вправо':
             officer_attack_x = +1
             officer_attack_y = +1
-            if OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] not in ['H', 'O', "."]:
-                if OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W1':
-                    try:
+            try:
+                if OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] not in ['H', 'O', "."]:
+                    if OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W1':
                         OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
-                    except IndexError:
-                        print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-                    else:
                         hp_w1 = 0
                         wolfs_amount -= 1
                         flag_officer_attack = True
-                elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W2':
-                    try:
+                    elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W2':
                         OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
-                    except IndexError:
-                        print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-                    else:
                         hp_w2 = 0
                         wolfs_amount -= 1
-                elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W3':
-                    try:
+                        flag_officer_attack = True
+                    elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W3':
                         OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
-                    except IndexError:
-                        print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-                    else:
                         hp_w3 = 0
                         wolfs_amount -= 1
-            else:
-                print('Ошибка. Введите поле, на котором присутствуют объекты для атаки или выберите пропуск хода.')
+                        flag_officer_attack = True
+                    else:
+                        print('Ошибка. Введите поле, на котором присутствуют объекты для атаки или выберите пропуск хода.')
+            except IndexError:
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для атаки') 
         else: 
             print('Введите корректное направление атаки офицера из перечисленного списка.')
 
@@ -401,123 +381,115 @@ while wolfs_amount > 0:
         if horse_move == 'вверх на 2 и влево на 1':
             horse_moveX = -1
             horse_moveY = -2
-            if OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] not in ['O', 'W1', 'W2', 'W3']:
-                try:
+            try:
+                if OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] not in ['O', 'W1', 'W2', 'W3']:
                     OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] = 'H'
-                except IndexError:
-                    print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-                else:    
                     OUTPUT_IMAGE[horse_y][horse_x] = "."
                     horse_x = horse_x + horse_moveX
                     horse_y = horse_y + horse_moveY
                     flag_horse = True
-            else:
-                print('Указанное поле занято.')
+                else:
+                    print('Указанное поле занято.')
+            except IndexError:
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.')            
         elif horse_move == 'вверх на 2 и вправо на 1':
             horse_moveX = +1
             horse_moveY = -2
-            if OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] not in ['O', 'W1', 'W2', 'W3']:
-                try:
+            try:
+                if OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] not in ['O', 'W1', 'W2', 'W3']:
                     OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] = 'H'
-                except IndexError:
-                    print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-                else:    
                     OUTPUT_IMAGE[horse_y][horse_x] = "."
                     horse_x = horse_x + horse_moveX
                     horse_y = horse_y + horse_moveY
                     flag_horse = True
-            else:
-                print('Указанное поле занято.')        
+                else:
+                    print('Указанное поле занято.')
+            except IndexError:
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.')      
         elif horse_move == 'влево на 2 и вверх на 1':
             horse_moveX = -1
             horse_moveY = -1
-            if OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] not in ['O', 'W1', 'W2', 'W3']:
-                try:
+            try:
+                if OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] not in ['O', 'W1', 'W2', 'W3']:
                     OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] = 'H'
-                except IndexError:
-                    print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-                else:    
                     OUTPUT_IMAGE[horse_y][horse_x] = "."
                     horse_x = horse_x + horse_moveX
                     horse_y = horse_y + horse_moveY
                     flag_horse = True
-            else:
-                print('Указанное поле занято.')  
+                else:
+                    print('Указанное поле занято.')
+            except IndexError:
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.')  
         elif horse_move == 'влево на 2 и вниз на 1':
             horse_moveX = -2
             horse_moveY = +1  
-            if OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] not in ['O', 'W1', 'W2', 'W3']:
-                try:
+            try:
+                if OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] not in ['O', 'W1', 'W2', 'W3']:
                     OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] = 'H'
-                except IndexError:
-                    print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-                else:    
                     OUTPUT_IMAGE[horse_y][horse_x] = "."
                     horse_x = horse_x + horse_moveX
                     horse_y = horse_y + horse_moveY
                     flag_horse = True
-            else:
-                print('Указанное поле занято.')  
+                else:
+                    print('Указанное поле занято.')
+            except IndexError:
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.')  
         elif horse_move == 'вниз на 2 и влево на 1':
             horse_moveX = -1
             horse_moveY = +2
-            if OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] not in ['O', 'W1', 'W2', 'W3']:
-                try:
+            try:
+                if OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] not in ['O', 'W1', 'W2', 'W3']:
                     OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] = 'H'
-                except IndexError:
-                    print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-                else:    
                     OUTPUT_IMAGE[horse_y][horse_x] = "."
                     horse_x = horse_x + horse_moveX
                     horse_y = horse_y + horse_moveY
                     flag_horse = True
-            else:
-                print('Указанное поле занято.')  
+                else:
+                    print('Указанное поле занято.')
+            except IndexError:
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.')  
         elif horse_move == 'вниз на 2 и вправо на 1':
             horse_moveX = +1
             horse_moveY = +2
-            if OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] not in ['O', 'W1', 'W2', 'W3']:
-                try:
+            try:
+                if OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] not in ['O', 'W1', 'W2', 'W3']:
                     OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] = 'H'
-                except IndexError:
-                    print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-                else:    
                     OUTPUT_IMAGE[horse_y][horse_x] = "."
                     horse_x = horse_x + horse_moveX
                     horse_y = horse_y + horse_moveY
                     flag_horse = True
-            else:
-                print('Указанное поле занято.')  
+                else:
+                    print('Указанное поле занято.')
+            except IndexError:
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.') 
         elif horse_move == 'вправо на 2 и вниз на 1':
             horse_moveX = +2
             horse_moveY = +1
-            if OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] not in ['O', 'W1', 'W2', 'W3']:
-                try:
+            try:
+                if OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] not in ['O', 'W1', 'W2', 'W3']:
                     OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] = 'H'
-                except IndexError:
-                    print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-                else:    
                     OUTPUT_IMAGE[horse_y][horse_x] = "."
                     horse_x = horse_x + horse_moveX
                     horse_y = horse_y + horse_moveY
                     flag_horse = True
-            else:
-                print('Указанное поле занято.')  
+                else:
+                    print('Указанное поле занято.')
+            except IndexError:
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.') 
         elif horse_move == 'вправо на 2 и вверх на 1':
             horse_moveX = +2
             horse_moveY = -1
-            if OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] not in ['O', 'W1', 'W2', 'W3']:
-                try:
+            try:
+                if OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] not in ['O', 'W1', 'W2', 'W3']:
                     OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] = 'H'
-                except IndexError:
-                    print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-                else:    
                     OUTPUT_IMAGE[horse_y][horse_x] = "."
                     horse_x = horse_x + horse_moveX
                     horse_y = horse_y + horse_moveY
                     flag_horse = True
-            else:
-                print('Указанное поле занято.')  
+                else:
+                    print('Указанное поле занято.')
+            except IndexError:
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.') 
         else:
             print('Введите корректное направление движения коня из перечисленного списка.')
 
