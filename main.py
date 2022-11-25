@@ -258,7 +258,7 @@ while wolfs_amount > 0:
         officer_attack = input('В каком направлении атакует офицер? Возможные варианты: вверх влево, вверх вправо, вниз влево, вниз вправо, пропуск атаки.\n')
         if officer_attack == 'пропуск атаки':
             pass
-        if officer_attack == 'вверх влево':
+        elif officer_attack == 'вверх влево':
             officer_attack_x = -1
             officer_attack_y = -1
             if OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] not in ['H', 'O', "."]:
@@ -289,6 +289,101 @@ while wolfs_amount > 0:
                         wolfs_amount -= 1
             else:
                 print('Ошибка. Введите корректное направление атаки.')
+        elif officer_attack == 'вверх вправо':
+            officer_attack_x = +1
+            officer_attack_y = -1
+            if OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] not in ['H', 'O', "."]:
+                if OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W1':
+                    try:
+                        OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
+                    except IndexError:
+                        print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
+                    else:
+                        hp_w1 = 0
+                        wolfs_amount -= 1
+                        flag_officer_attack = True
+                elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W2':
+                    try:
+                        OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
+                    except IndexError:
+                        print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
+                    else:
+                        hp_w2 = 0
+                        wolfs_amount -= 1
+                elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W3':
+                    try:
+                        OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
+                    except IndexError:
+                        print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
+                    else:
+                        hp_w3 = 0
+                        wolfs_amount -= 1
+            else:
+                print('Ошибка. Введите корректное направление атаки.')
+        elif officer_attack == 'вниз влево':
+            officer_attack_x = -1
+            officer_attack_y = +1
+            if OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] not in ['H', 'O', "."]:
+                if OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W1':
+                    try:
+                        OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
+                    except IndexError:
+                        print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
+                    else:
+                        hp_w1 = 0
+                        wolfs_amount -= 1
+                        flag_officer_attack = True
+                elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W2':
+                    try:
+                        OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
+                    except IndexError:
+                        print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
+                    else:
+                        hp_w2 = 0
+                        wolfs_amount -= 1
+                elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W3':
+                    try:
+                        OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
+                    except IndexError:
+                        print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
+                    else:
+                        hp_w3 = 0
+                        wolfs_amount -= 1
+            else:
+                print('Ошибка. Введите корректное направление атаки.')
+        elif officer_attack == 'вниз вправо':
+            officer_attack_x = +1
+            officer_attack_y = +1
+            if OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] not in ['H', 'O', "."]:
+                if OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W1':
+                    try:
+                        OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
+                    except IndexError:
+                        print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
+                    else:
+                        hp_w1 = 0
+                        wolfs_amount -= 1
+                        flag_officer_attack = True
+                elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W2':
+                    try:
+                        OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
+                    except IndexError:
+                        print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
+                    else:
+                        hp_w2 = 0
+                        wolfs_amount -= 1
+                elif OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] == 'W3':
+                    try:
+                        OUTPUT_IMAGE[officer_y + officer_attack_y][officer_x + officer_attack_x] = "."
+                    except IndexError:
+                        print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
+                    else:
+                        hp_w3 = 0
+                        wolfs_amount -= 1
+            else:
+                print('Ошибка. Введите корректное направление атаки.')
+        else: 
+            print('Введите корректное направление атаки офицера из перечисленного списка.')
 
     #Вывод игрового поля в консоль после атаки офицера.
     for line_words in OUTPUT_IMAGE:
@@ -318,7 +413,7 @@ while wolfs_amount > 0:
                     flag_horse = True
             else:
                 print('Указанное поле занято.')
-        if horse_move == 'вверх на 2 и вправо на 1':
+        elif horse_move == 'вверх на 2 и вправо на 1':
             horse_moveX = +1
             horse_moveY = -2
             if OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] not in ['O', 'W1', 'W2', 'W3']:
@@ -333,7 +428,7 @@ while wolfs_amount > 0:
                     flag_horse = True
             else:
                 print('Указанное поле занято.')        
-        if horse_move == 'влево на 2 и вверх на 1':
+        elif horse_move == 'влево на 2 и вверх на 1':
             horse_moveX = -1
             horse_moveY = -1
             if OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] not in ['O', 'W1', 'W2', 'W3']:
@@ -348,7 +443,7 @@ while wolfs_amount > 0:
                     flag_horse = True
             else:
                 print('Указанное поле занято.')  
-        if horse_move == 'влево на 2 и вниз на 1':
+        elif horse_move == 'влево на 2 и вниз на 1':
             horse_moveX = -2
             horse_moveY = +1  
             if OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] not in ['O', 'W1', 'W2', 'W3']:
@@ -363,7 +458,7 @@ while wolfs_amount > 0:
                     flag_horse = True
             else:
                 print('Указанное поле занято.')  
-        if horse_move == 'вниз на 2 и влево на 1':
+        elif horse_move == 'вниз на 2 и влево на 1':
             horse_moveX = -1
             horse_moveY = +2
             if OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] not in ['O', 'W1', 'W2', 'W3']:
@@ -378,7 +473,7 @@ while wolfs_amount > 0:
                     flag_horse = True
             else:
                 print('Указанное поле занято.')  
-        if horse_move == 'вниз на 2 и вправо на 1':
+        elif horse_move == 'вниз на 2 и вправо на 1':
             horse_moveX = +1
             horse_moveY = +2
             if OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] not in ['O', 'W1', 'W2', 'W3']:
@@ -393,7 +488,7 @@ while wolfs_amount > 0:
                     flag_horse = True
             else:
                 print('Указанное поле занято.')  
-        if horse_move == 'вправо на 2 и вниз на 1':
+        elif horse_move == 'вправо на 2 и вниз на 1':
             horse_moveX = +2
             horse_moveY = +1
             if OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] not in ['O', 'W1', 'W2', 'W3']:
@@ -408,7 +503,7 @@ while wolfs_amount > 0:
                     flag_horse = True
             else:
                 print('Указанное поле занято.')  
-        if horse_move == 'вправо на 2 и вверх на 1':
+        elif horse_move == 'вправо на 2 и вверх на 1':
             horse_moveX = +2
             horse_moveY = -1
             if OUTPUT_IMAGE[horse_y + horse_moveY][horse_x + horse_moveX] not in ['O', 'W1', 'W2', 'W3']:
@@ -424,13 +519,14 @@ while wolfs_amount > 0:
             else:
                 print('Указанное поле занято.')  
         else:
-            print('Введите корректное направление движения коня.')
+            print('Введите корректное направление движения коня из перечисленного списка.')
 
     #Вывод игрового поля в консоль после хода коня.
     for line_words in OUTPUT_IMAGE:
         for word in line_words:
            print(word, end="")
         print("\n", end="")
+
 
     #Атака коня: выходим из цикла, когда получаем корректное направление атаки.
     horse_attack = 0
@@ -477,7 +573,7 @@ while wolfs_amount > 0:
                         flag_horse_attack = True
                 else:
                     print('Ошибка. Введите корректное направление атаки.')             
-        if horse_attack == 'вверх на 2 и вправо на 1':
+        elif horse_attack == 'вверх на 2 и вправо на 1':
             horse_attack_x = +1
             horse_attack_y = -2
             try:   
@@ -515,7 +611,7 @@ while wolfs_amount > 0:
                         flag_horse_attack = True
                 else:
                     print('Ошибка. Введите корректное направление атаки.')
-        if horse_attack == 'влево на 2 и вверх на 1':
+        elif horse_attack == 'влево на 2 и вверх на 1':
             horse_attack_x = -2
             horse_attack_y = -1
             try:   
@@ -553,7 +649,7 @@ while wolfs_amount > 0:
                         flag_horse_attack = True
                 else:
                     print('Ошибка. Введите корректное направление атаки.')    
-        if horse_attack == 'влево на 2 и вниз на 1':
+        elif horse_attack == 'влево на 2 и вниз на 1':
             horse_attack_x = -2
             horse_attack_y = +1
             try:   
@@ -591,7 +687,7 @@ while wolfs_amount > 0:
                         flag_horse_attack = True
                 else:
                     print('Ошибка. Введите корректное направление атаки.')
-        if horse_attack == 'вниз на 2 и влево на 1':
+        elif horse_attack == 'вниз на 2 и влево на 1':
             horse_attack_x = -1
             horse_attack_y = +2
             try:   
@@ -629,7 +725,7 @@ while wolfs_amount > 0:
                         flag_horse_attack = True
                 else:
                     print('Ошибка. Введите корректное направление атаки.')    
-        if horse_attack == 'вниз на 2 и вправо на 1':
+        elif horse_attack == 'вниз на 2 и вправо на 1':
             horse_attack_x = +1
             horse_attack_y = +2
             try:   
@@ -667,7 +763,7 @@ while wolfs_amount > 0:
                         flag_horse_attack = True
                 else:
                     print('Ошибка. Введите корректное направление атаки.')     
-        if horse_attack == 'вправо на 2 и вниз на 1':
+        elif horse_attack == 'вправо на 2 и вниз на 1':
             horse_attack_x = +2
             horse_attack_y = +1
             try:   
@@ -705,7 +801,7 @@ while wolfs_amount > 0:
                         flag_horse_attack = True
                 else:
                     print('Ошибка. Введите корректное направление атаки.')  
-        if horse_attack == 'вправо на 2 и вверх на 1':
+        elif horse_attack == 'вправо на 2 и вверх на 1':
             horse_attack_x = +2
             horse_attack_y = -1
             try:   
@@ -744,7 +840,7 @@ while wolfs_amount > 0:
                 else:
                     print('Ошибка. Введите корректное направление атаки.')  
         else:
-                    print('Ошибка. Введите корректное направление атаки.')  
+                    print('Введите корректное направление атаки из приведенного списка.')  
 
     #Вывод игрового поля в консоль после атаки коня.
     for line_words in OUTPUT_IMAGE:
@@ -774,7 +870,7 @@ while wolfs_amount > 0:
                 w1_x = w1_x + w1_moveX
                 w1_y = w1_y + w1_moveY
                 flag_wolf1 = True
-        if w1_move == 2:
+        elif w1_move == 2:
             w1_moveX = 0
             w1_moveY = -1
             try:   
@@ -787,7 +883,7 @@ while wolfs_amount > 0:
                 w1_x = w1_x + w1_moveX
                 w1_y = w1_y + w1_moveY
                 flag_wolf1 = True
-        if w1_move == 3:
+        elif w1_move == 3:
             w1_moveX = +1
             w1_moveY = -1
             try:   
@@ -800,7 +896,7 @@ while wolfs_amount > 0:
                 w1_x = w1_x + w1_moveX
                 w1_y = w1_y + w1_moveY
                 flag_wolf1 = True
-        if w1_move == 4:
+        elif w1_move == 4:
             w1_moveX = -1
             w1_moveY = 0
             try:   
@@ -813,10 +909,10 @@ while wolfs_amount > 0:
                 w1_x = w1_x + w1_moveX
                 w1_y = w1_y + w1_moveY
                 flag_wolf1 = True
-        if w1_move == 5:
+        elif w1_move == 5:
             w1_moveX = 0
             w1_moveY = 0
-        if w1_move == 6:
+        elif w1_move == 6:
             w1_moveX = +1
             w1_moveY = 0
             try:   
@@ -829,7 +925,7 @@ while wolfs_amount > 0:
                 w1_x = w1_x + w1_moveX
                 w1_y = w1_y + w1_moveY
                 flag_wolf1 = True
-        if w1_move == 7:
+        elif w1_move == 7:
             w1_moveX = -1
             w1_moveY = +1
             try:   
@@ -842,7 +938,7 @@ while wolfs_amount > 0:
                 w1_x = w1_x + w1_moveX
                 w1_y = w1_y + w1_moveY
                 flag_wolf1 = True
-        if w1_move == 8:
+        elif w1_move == 8:
             w1_moveX = 0
             w1_moveY = +1
             try:   
@@ -855,7 +951,7 @@ while wolfs_amount > 0:
                 w1_x = w1_x + w1_moveX
                 w1_y = w1_y + w1_moveY
                 flag_wolf1 = True
-        if w1_move == 9:
+        elif w1_move == 9:
             w1_moveX = +1
             w1_moveY = +1
             try:   
@@ -890,7 +986,7 @@ while wolfs_amount > 0:
                 w2_x = w2_x + w2_moveX
                 w2_y = w2_y + w2_moveY
                 flag_wolf1 = True
-        if w2_move == 2:
+        elif w2_move == 2:
             w2_moveX = 0
             w2_moveY = -1
             try:   
@@ -903,7 +999,7 @@ while wolfs_amount > 0:
                 w2_x = w2_x + w2_moveX
                 w2_y = w2_y + w2_moveY
                 flag_wolf1 = True
-        if w2_move == 3:
+        elif w2_move == 3:
             w2_moveX = +1
             w2_moveY = -1
             try:   
@@ -916,7 +1012,7 @@ while wolfs_amount > 0:
                 w2_x = w2_x + w2_moveX
                 w2_y = w2_y + w2_moveY
                 flag_wolf1 = True
-        if w2_move == 4:
+        elif w2_move == 4:
             w2_moveX = -1
             w2_moveY = 0
             try:   
@@ -929,10 +1025,10 @@ while wolfs_amount > 0:
                 w2_x = w2_x + w2_moveX
                 w2_y = w2_y + w2_moveY
                 flag_wolf1 = True
-        if w2_move == 5:
+        elif w2_move == 5:
             w2_moveX = 0
             w2_moveY = 0
-        if w2_move == 6:
+        elif w2_move == 6:
             w2_moveX = +1
             w2_moveY = 0
             try:   
@@ -945,7 +1041,7 @@ while wolfs_amount > 0:
                 w2_x = w2_x + w2_moveX
                 w2_y = w2_y + w2_moveY
                 flag_wolf1 = True
-        if w2_move == 7:
+        elif w2_move == 7:
             w2_moveX = -1
             w2_moveY = +1
             try:   
@@ -958,7 +1054,7 @@ while wolfs_amount > 0:
                 w2_x = w2_x + w2_moveX
                 w2_y = w2_y + w2_moveY
                 flag_wolf1 = True
-        if w2_move == 8:
+        elif w2_move == 8:
             w2_moveX = 0
             w2_moveY = +1
             try:   
@@ -971,7 +1067,7 @@ while wolfs_amount > 0:
                 w2_x = w2_x + w2_moveX
                 w2_y = w2_y + w2_moveY
                 flag_wolf1 = True
-        if w2_move == 9:
+        elif w2_move == 9:
             w2_moveX = +1
             w2_moveY = +1
             try:   
@@ -1006,7 +1102,7 @@ while wolfs_amount > 0:
                 w3_x = w3_x + w3_moveX
                 w3_y = w3_y + w3_moveY
                 flag_wolf1 = True
-        if w3_move == 2:
+        elif w3_move == 2:
             w3_moveX = 0
             w3_moveY = -1
             try:   
@@ -1019,7 +1115,7 @@ while wolfs_amount > 0:
                 w3_x = w3_x + w3_moveX
                 w3_y = w3_y + w3_moveY
                 flag_wolf1 = True
-        if w3_move == 3:
+        elif w3_move == 3:
             w3_moveX = +1
             w3_moveY = -1
             try:   
@@ -1032,7 +1128,7 @@ while wolfs_amount > 0:
                 w3_x = w3_x + w3_moveX
                 w3_y = w3_y + w3_moveY
                 flag_wolf1 = True
-        if w3_move == 4:
+        elif w3_move == 4:
             w3_moveX = -1
             w3_moveY = 0
             try:   
@@ -1045,10 +1141,10 @@ while wolfs_amount > 0:
                 w3_x = w3_x + w3_moveX
                 w3_y = w3_y + w3_moveY
                 flag_wolf1 = True
-        if w3_move == 5:
+        elif w3_move == 5:
             w3_moveX = 0
             w3_moveY = 0
-        if w3_move == 6:
+        elif w3_move == 6:
             w3_moveX = +1
             w3_moveY = 0
             try:   
@@ -1061,7 +1157,7 @@ while wolfs_amount > 0:
                 w3_x = w3_x + w3_moveX
                 w3_y = w3_y + w3_moveY
                 flag_wolf1 = True
-        if w3_move == 7:
+        elif w3_move == 7:
             w3_moveX = -1
             w3_moveY = +1
             try:   
@@ -1074,7 +1170,7 @@ while wolfs_amount > 0:
                 w3_x = w3_x + w3_moveX
                 w3_y = w3_y + w3_moveY
                 flag_wolf1 = True
-        if w3_move == 8:
+        elif w3_move == 8:
             w3_moveX = 0
             w3_moveY = +1
             try:   
@@ -1087,7 +1183,7 @@ while wolfs_amount > 0:
                 w3_x = w3_x + w3_moveX
                 w3_y = w3_y + w3_moveY
                 flag_wolf1 = True
-        if w3_move == 9:
+        elif w3_move == 9:
             w3_moveX = +1
             w3_moveY = +1
             try:   
