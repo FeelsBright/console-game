@@ -127,7 +127,6 @@ while wolfs_amount > 0:
                     OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] = 'O'
                 else:
                     print('Поле занято другим существом. Выберите другую клетку.')
-                    continue
             except IndexError:
                 print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
             else:
@@ -143,7 +142,6 @@ while wolfs_amount > 0:
                     OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] = 'O'
                 else:
                     print('Поле занято другим существом. Выберите другую клетку.')
-                    continue
             except IndexError:
                 print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
             else:
@@ -159,7 +157,6 @@ while wolfs_amount > 0:
                     OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] = 'O'
                 else:
                     print('Поле занято другим существом. Выберите другую клетку.')
-                    continue
             except IndexError:
                 print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
             else:
@@ -175,7 +172,6 @@ while wolfs_amount > 0:
                     OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] = 'O'
                 else:
                     print('Поле занято другим существом. Выберите другую клетку.')
-                    continue
             except IndexError:
                 print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
             else:
@@ -194,7 +190,6 @@ while wolfs_amount > 0:
                     OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] = 'O'
                 else:
                     print('Поле занято другим существом. Выберите другую клетку.')
-                    continue
             except IndexError:
                 print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
             else:
@@ -210,7 +205,6 @@ while wolfs_amount > 0:
                     OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] = 'O'
                 else:
                     print('Поле занято другим существом. Выберите другую клетку.')
-                    continue
             except IndexError:
                 print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
             else:
@@ -226,7 +220,6 @@ while wolfs_amount > 0:
                     OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] = 'O'
                 else:
                     print('Поле занято другим существом. Выберите другую клетку.')
-                    continue
             except IndexError:
                 print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
             else:
@@ -242,7 +235,6 @@ while wolfs_amount > 0:
                     OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] = 'O'
                 else:
                     print('Поле занято другим существом. Выберите другую клетку.')
-                    continue
             except IndexError:
                 print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
             else:
@@ -513,329 +505,305 @@ while wolfs_amount > 0:
             horse_attack_y = -2
             try:   
                 if OUTPUT_IMAGE[horse_y + horse_attack_x][horse_x + horse_attack_y] not in ['O', 'H', '.']: 
-                    flag_enemy = True
+                    if OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W1':
+                        hp_w1 -= 1
+                        if hp_w1 == 0:
+                            wolfs_amount -= 1
+                            OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                            OUTPUT_IMAGE[horse_y][horse_x] = "."
+                            horse_x = horse_x + horse_attack_x
+                            horse_y = horse_y + horse_attack_y
+                            flag_horse_attack = True
+                    elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W2':     
+                        hp_w2 -= 1
+                        if hp_w2 == 0:
+                            wolfs_amount -= 1
+                            OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                            OUTPUT_IMAGE[horse_y][horse_x] = "."
+                            horse_x = horse_x + horse_attack_x
+                            horse_y = horse_y + horse_attack_y
+                            flag_horse_attack = True
+                    elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W3':
+                        hp_w3 -= 1
+                        if hp_w3 == 0:
+                            wolfs_amount -= 1
+                            OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                            OUTPUT_IMAGE[horse_y][horse_x] = "."
+                            horse_x = horse_x + horse_attack_x
+                            horse_y = horse_y + horse_attack_y
+                            flag_horse_attack = True
+                    else:
+                        print('Ошибка. Введите корректную цель атаки.') 
                 else:
                     print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
-                    continue
             except IndexError:
                 print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.')
-            else:           
-                if OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W1':
-                    hp_w1 -= 1
-                    if hp_w1 == 0:
-                        wolfs_amount -= 1
-                        OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
-                        OUTPUT_IMAGE[horse_y][horse_x] = "."
-                        horse_x = horse_x + horse_attack_x
-                        horse_y = horse_y + horse_attack_y
-                        flag_horse_attack = True
-                elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W2':     
-                    hp_w2 -= 1
-                    if hp_w2 == 0:
-                        wolfs_amount -= 1
-                        OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
-                        OUTPUT_IMAGE[horse_y][horse_x] = "."
-                        horse_x = horse_x + horse_attack_x
-                        horse_y = horse_y + horse_attack_y
-                        flag_horse_attack = True
-                elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W3':
-                    hp_w3 -= 1
-                    if hp_w3 == 0:
-                        wolfs_amount -= 1
-                        OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
-                        OUTPUT_IMAGE[horse_y][horse_x] = "."
-                        horse_x = horse_x + horse_attack_x
-                        horse_y = horse_y + horse_attack_y
-                        flag_horse_attack = True
-                else:
-                    print('Ошибка. Введите корректное направление атаки.')             
         elif horse_attack == 'вверх на 2 и вправо на 1':
             horse_attack_x = +1
             horse_attack_y = -2
             try:   
                 if OUTPUT_IMAGE[horse_y + horse_attack_x][horse_x + horse_attack_y] not in ['O', 'H', '.']: 
-                    flag_enemy = True
+                    if OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W1':
+                        hp_w1 -= 1
+                        if hp_w1 == 0:
+                            wolfs_amount -= 1
+                            OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                            OUTPUT_IMAGE[horse_y][horse_x] = "."
+                            horse_x = horse_x + horse_attack_x
+                            horse_y = horse_y + horse_attack_y
+                            flag_horse_attack = True
+                    elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W2':     
+                        hp_w2 -= 1
+                        if hp_w2 == 0:
+                            wolfs_amount -= 1
+                            OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                            OUTPUT_IMAGE[horse_y][horse_x] = "."
+                            horse_x = horse_x + horse_attack_x
+                            horse_y = horse_y + horse_attack_y
+                            flag_horse_attack = True
+                    elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W3':
+                        hp_w3 -= 1
+                        if hp_w3 == 0:
+                            wolfs_amount -= 1
+                            OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                            OUTPUT_IMAGE[horse_y][horse_x] = "."
+                            horse_x = horse_x + horse_attack_x
+                            horse_y = horse_y + horse_attack_y
+                            flag_horse_attack = True
+                    else:
+                        print('Ошибка. Введите корректную цель атаки.') 
                 else:
                     print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
-                    continue
             except IndexError:
                 print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.')
-            else:           
-                if OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W1':
-                    hp_w1 -= 1
-                    if hp_w1 == 0:
-                        wolfs_amount -= 1
-                        OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
-                        OUTPUT_IMAGE[horse_y][horse_x] = "."
-                        horse_x = horse_x + horse_attack_x
-                        horse_y = horse_y + horse_attack_y
-                        flag_horse_attack = True
-                elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W2':     
-                    hp_w2 -= 1
-                    if hp_w2 == 0:
-                        wolfs_amount -= 1
-                        OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
-                        OUTPUT_IMAGE[horse_y][horse_x] = "."
-                        horse_x = horse_x + horse_attack_x
-                        horse_y = horse_y + horse_attack_y
-                        flag_horse_attack = True
-                elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W3':
-                    hp_w3 -= 1
-                    if hp_w3 == 0:
-                        wolfs_amount -= 1
-                        OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
-                        OUTPUT_IMAGE[horse_y][horse_x] = "."
-                        horse_x = horse_x + horse_attack_x
-                        horse_y = horse_y + horse_attack_y
-                        flag_horse_attack = True
-                else:
-                    print('Ошибка. Введите корректное направление атаки.')
         elif horse_attack == 'влево на 2 и вверх на 1':
             horse_attack_x = -2
             horse_attack_y = -1
             try:   
                 if OUTPUT_IMAGE[horse_y + horse_attack_x][horse_x + horse_attack_y] not in ['O', 'H', '.']: 
-                    flag_enemy = True
+                    if OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W1':
+                        hp_w1 -= 1
+                        if hp_w1 == 0:
+                            wolfs_amount -= 1
+                            OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                            OUTPUT_IMAGE[horse_y][horse_x] = "."
+                            horse_x = horse_x + horse_attack_x
+                            horse_y = horse_y + horse_attack_y
+                            flag_horse_attack = True
+                    elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W2':     
+                        hp_w2 -= 1
+                        if hp_w2 == 0:
+                            wolfs_amount -= 1
+                            OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                            OUTPUT_IMAGE[horse_y][horse_x] = "."
+                            horse_x = horse_x + horse_attack_x
+                            horse_y = horse_y + horse_attack_y
+                            flag_horse_attack = True
+                    elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W3':
+                        hp_w3 -= 1
+                        if hp_w3 == 0:
+                            wolfs_amount -= 1
+                            OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                            OUTPUT_IMAGE[horse_y][horse_x] = "."
+                            horse_x = horse_x + horse_attack_x
+                            horse_y = horse_y + horse_attack_y
+                            flag_horse_attack = True
+                    else:
+                        print('Ошибка. Введите корректную цель атаки.') 
                 else:
                     print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
-                    continue
             except IndexError:
-                print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.')
-            else:           
-                if OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W1':
-                    hp_w1 -= 1
-                    if hp_w1 == 0:
-                        wolfs_amount -= 1
-                        OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
-                        OUTPUT_IMAGE[horse_y][horse_x] = "."
-                        horse_x = horse_x + horse_attack_x
-                        horse_y = horse_y + horse_attack_y
-                        flag_horse_attack = True
-                elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W2':     
-                    hp_w2 -= 1
-                    if hp_w2 == 0:
-                        wolfs_amount -= 1
-                        OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
-                        OUTPUT_IMAGE[horse_y][horse_x] = "."
-                        horse_x = horse_x + horse_attack_x
-                        horse_y = horse_y + horse_attack_y
-                        flag_horse_attack = True
-                elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W3':
-                    hp_w3 -= 1
-                    if hp_w3 == 0:
-                        wolfs_amount -= 1
-                        OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
-                        OUTPUT_IMAGE[horse_y][horse_x] = "."
-                        horse_x = horse_x + horse_attack_x
-                        horse_y = horse_y + horse_attack_y
-                        flag_horse_attack = True
-                else:
-                    print('Ошибка. Введите корректное направление атаки.')    
+                print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.') 
         elif horse_attack == 'влево на 2 и вниз на 1':
             horse_attack_x = -2
             horse_attack_y = +1
             try:   
                 if OUTPUT_IMAGE[horse_y + horse_attack_x][horse_x + horse_attack_y] not in ['O', 'H', '.']: 
-                    flag_enemy = True
+                    if OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W1':
+                        hp_w1 -= 1
+                        if hp_w1 == 0:
+                            wolfs_amount -= 1
+                            OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                            OUTPUT_IMAGE[horse_y][horse_x] = "."
+                            horse_x = horse_x + horse_attack_x
+                            horse_y = horse_y + horse_attack_y
+                            flag_horse_attack = True
+                    elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W2':     
+                        hp_w2 -= 1
+                        if hp_w2 == 0:
+                            wolfs_amount -= 1
+                            OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                            OUTPUT_IMAGE[horse_y][horse_x] = "."
+                            horse_x = horse_x + horse_attack_x
+                            horse_y = horse_y + horse_attack_y
+                            flag_horse_attack = True
+                    elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W3':
+                        hp_w3 -= 1
+                        if hp_w3 == 0:
+                            wolfs_amount -= 1
+                            OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                            OUTPUT_IMAGE[horse_y][horse_x] = "."
+                            horse_x = horse_x + horse_attack_x
+                            horse_y = horse_y + horse_attack_y
+                            flag_horse_attack = True
+                    else:
+                        print('Ошибка. Введите корректную цель атаки.') 
                 else:
                     print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
-                    continue
             except IndexError:
                 print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.')
-            else:           
-                if OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W1':
-                    hp_w1 -= 1
-                    if hp_w1 == 0:
-                        wolfs_amount -= 1
-                        OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
-                        OUTPUT_IMAGE[horse_y][horse_x] = "."
-                        horse_x = horse_x + horse_attack_x
-                        horse_y = horse_y + horse_attack_y
-                        flag_horse_attack = True
-                elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W2':     
-                    hp_w2 -= 1
-                    if hp_w2 == 0:
-                        wolfs_amount -= 1
-                        OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
-                        OUTPUT_IMAGE[horse_y][horse_x] = "."
-                        horse_x = horse_x + horse_attack_x
-                        horse_y = horse_y + horse_attack_y
-                        flag_horse_attack = True
-                elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W3':
-                    hp_w3 -= 1
-                    if hp_w3 == 0:
-                        wolfs_amount -= 1
-                        OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
-                        OUTPUT_IMAGE[horse_y][horse_x] = "."
-                        horse_x = horse_x + horse_attack_x
-                        horse_y = horse_y + horse_attack_y
-                        flag_horse_attack = True
-                else:
-                    print('Ошибка. Введите корректное направление атаки.')
         elif horse_attack == 'вниз на 2 и влево на 1':
             horse_attack_x = -1
             horse_attack_y = +2
             try:   
                 if OUTPUT_IMAGE[horse_y + horse_attack_x][horse_x + horse_attack_y] not in ['O', 'H', '.']: 
-                    flag_enemy = True
+                    if OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W1':
+                        hp_w1 -= 1
+                        if hp_w1 == 0:
+                            wolfs_amount -= 1
+                            OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                            OUTPUT_IMAGE[horse_y][horse_x] = "."
+                            horse_x = horse_x + horse_attack_x
+                            horse_y = horse_y + horse_attack_y
+                            flag_horse_attack = True
+                    elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W2':     
+                        hp_w2 -= 1
+                        if hp_w2 == 0:
+                            wolfs_amount -= 1
+                            OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                            OUTPUT_IMAGE[horse_y][horse_x] = "."
+                            horse_x = horse_x + horse_attack_x
+                            horse_y = horse_y + horse_attack_y
+                            flag_horse_attack = True
+                    elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W3':
+                        hp_w3 -= 1
+                        if hp_w3 == 0:
+                            wolfs_amount -= 1
+                            OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                            OUTPUT_IMAGE[horse_y][horse_x] = "."
+                            horse_x = horse_x + horse_attack_x
+                            horse_y = horse_y + horse_attack_y
+                            flag_horse_attack = True
+                    else:
+                        print('Ошибка. Введите корректную цель атаки.') 
                 else:
                     print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
-                    continue
             except IndexError:
-                print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.')
-            else:           
-                if OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W1':
-                    hp_w1 -= 1
-                    if hp_w1 == 0:
-                        wolfs_amount -= 1
-                        OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
-                        OUTPUT_IMAGE[horse_y][horse_x] = "."
-                        horse_x = horse_x + horse_attack_x
-                        horse_y = horse_y + horse_attack_y
-                        flag_horse_attack = True
-                elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W2':     
-                    hp_w2 -= 1
-                    if hp_w2 == 0:
-                        wolfs_amount -= 1
-                        OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
-                        OUTPUT_IMAGE[horse_y][horse_x] = "."
-                        horse_x = horse_x + horse_attack_x
-                        horse_y = horse_y + horse_attack_y
-                        flag_horse_attack = True
-                elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W3':
-                    hp_w3 -= 1
-                    if hp_w3 == 0:
-                        wolfs_amount -= 1
-                        OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
-                        OUTPUT_IMAGE[horse_y][horse_x] = "."
-                        horse_x = horse_x + horse_attack_x
-                        horse_y = horse_y + horse_attack_y
-                        flag_horse_attack = True
-                else:
-                    print('Ошибка. Введите корректное направление атаки.')    
+                print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.')  
         elif horse_attack == 'вниз на 2 и вправо на 1':
             horse_attack_x = +1
             horse_attack_y = +2
             try:   
                 if OUTPUT_IMAGE[horse_y + horse_attack_x][horse_x + horse_attack_y] not in ['O', 'H', '.']: 
-                    flag_enemy = True
+                    if OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W1':
+                        hp_w1 -= 1
+                        if hp_w1 == 0:
+                            wolfs_amount -= 1
+                            OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                            OUTPUT_IMAGE[horse_y][horse_x] = "."
+                            horse_x = horse_x + horse_attack_x
+                            horse_y = horse_y + horse_attack_y
+                            flag_horse_attack = True
+                    elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W2':     
+                        hp_w2 -= 1
+                        if hp_w2 == 0:
+                            wolfs_amount -= 1
+                            OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                            OUTPUT_IMAGE[horse_y][horse_x] = "."
+                            horse_x = horse_x + horse_attack_x
+                            horse_y = horse_y + horse_attack_y
+                            flag_horse_attack = True
+                    elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W3':
+                        hp_w3 -= 1
+                        if hp_w3 == 0:
+                            wolfs_amount -= 1
+                            OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                            OUTPUT_IMAGE[horse_y][horse_x] = "."
+                            horse_x = horse_x + horse_attack_x
+                            horse_y = horse_y + horse_attack_y
+                            flag_horse_attack = True
+                    else:
+                        print('Ошибка. Введите корректную цель атаки.') 
                 else:
                     print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
-                    continue
             except IndexError:
                 print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.')
-            else:           
-                if OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W1':
-                    hp_w1 -= 1
-                    if hp_w1 == 0:
-                        wolfs_amount -= 1
-                        OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
-                        OUTPUT_IMAGE[horse_y][horse_x] = "."
-                        horse_x = horse_x + horse_attack_x
-                        horse_y = horse_y + horse_attack_y
-                        flag_horse_attack = True
-                elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W2':     
-                    hp_w2 -= 1
-                    if hp_w2 == 0:
-                        wolfs_amount -= 1
-                        OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
-                        OUTPUT_IMAGE[horse_y][horse_x] = "."
-                        horse_x = horse_x + horse_attack_x
-                        horse_y = horse_y + horse_attack_y
-                        flag_horse_attack = True
-                elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W3':
-                    hp_w3 -= 1
-                    if hp_w3 == 0:
-                        wolfs_amount -= 1
-                        OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
-                        OUTPUT_IMAGE[horse_y][horse_x] = "."
-                        horse_x = horse_x + horse_attack_x
-                        horse_y = horse_y + horse_attack_y
-                        flag_horse_attack = True
-                else:
-                    print('Ошибка. Введите корректное направление атаки.')     
         elif horse_attack == 'вправо на 2 и вниз на 1':
             horse_attack_x = +2
             horse_attack_y = +1
             try:   
                 if OUTPUT_IMAGE[horse_y + horse_attack_x][horse_x + horse_attack_y] not in ['O', 'H', '.']: 
-                    flag_enemy = True
+                    if OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W1':
+                        hp_w1 -= 1
+                        if hp_w1 == 0:
+                            wolfs_amount -= 1
+                            OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                            OUTPUT_IMAGE[horse_y][horse_x] = "."
+                            horse_x = horse_x + horse_attack_x
+                            horse_y = horse_y + horse_attack_y
+                            flag_horse_attack = True
+                    elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W2':     
+                        hp_w2 -= 1
+                        if hp_w2 == 0:
+                            wolfs_amount -= 1
+                            OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                            OUTPUT_IMAGE[horse_y][horse_x] = "."
+                            horse_x = horse_x + horse_attack_x
+                            horse_y = horse_y + horse_attack_y
+                            flag_horse_attack = True
+                    elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W3':
+                        hp_w3 -= 1
+                        if hp_w3 == 0:
+                            wolfs_amount -= 1
+                            OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                            OUTPUT_IMAGE[horse_y][horse_x] = "."
+                            horse_x = horse_x + horse_attack_x
+                            horse_y = horse_y + horse_attack_y
+                            flag_horse_attack = True
+                    else:
+                        print('Ошибка. Введите корректную цель атаки.') 
                 else:
                     print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
-                    continue
             except IndexError:
                 print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.')
-            else:           
-                if OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W1':
-                    hp_w1 -= 1
-                    if hp_w1 == 0:
-                        wolfs_amount -= 1
-                        OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
-                        OUTPUT_IMAGE[horse_y][horse_x] = "."
-                        horse_x = horse_x + horse_attack_x
-                        horse_y = horse_y + horse_attack_y
-                        flag_horse_attack = True
-                elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W2':     
-                    hp_w2 -= 1
-                    if hp_w2 == 0:
-                        wolfs_amount -= 1
-                        OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
-                        OUTPUT_IMAGE[horse_y][horse_x] = "."
-                        horse_x = horse_x + horse_attack_x
-                        horse_y = horse_y + horse_attack_y
-                        flag_horse_attack = True
-                elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W3':
-                    hp_w3 -= 1
-                    if hp_w3 == 0:
-                        wolfs_amount -= 1
-                        OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
-                        OUTPUT_IMAGE[horse_y][horse_x] = "."
-                        horse_x = horse_x + horse_attack_x
-                        horse_y = horse_y + horse_attack_y
-                        flag_horse_attack = True
-                else:
-                    print('Ошибка. Введите корректное направление атаки.')  
         elif horse_attack == 'вправо на 2 и вверх на 1':
             horse_attack_x = +2
             horse_attack_y = -1
             try:   
                 if OUTPUT_IMAGE[horse_y + horse_attack_x][horse_x + horse_attack_y] not in ['O', 'H', '.']: 
-                    flag_enemy = True
+                    if OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W1':
+                        hp_w1 -= 1
+                        if hp_w1 == 0:
+                            wolfs_amount -= 1
+                            OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                            OUTPUT_IMAGE[horse_y][horse_x] = "."
+                            horse_x = horse_x + horse_attack_x
+                            horse_y = horse_y + horse_attack_y
+                            flag_horse_attack = True
+                    elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W2':     
+                        hp_w2 -= 1
+                        if hp_w2 == 0:
+                            wolfs_amount -= 1
+                            OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                            OUTPUT_IMAGE[horse_y][horse_x] = "."
+                            horse_x = horse_x + horse_attack_x
+                            horse_y = horse_y + horse_attack_y
+                            flag_horse_attack = True
+                    elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W3':
+                        hp_w3 -= 1
+                        if hp_w3 == 0:
+                            wolfs_amount -= 1
+                            OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
+                            OUTPUT_IMAGE[horse_y][horse_x] = "."
+                            horse_x = horse_x + horse_attack_x
+                            horse_y = horse_y + horse_attack_y
+                            flag_horse_attack = True
+                    else:
+                        print('Ошибка. Введите корректную цель атаки.') 
                 else:
                     print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
-                    continue
             except IndexError:
                 print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.')
-            else:           
-                if OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W1':
-                    hp_w1 -= 1
-                    if hp_w1 == 0:
-                        wolfs_amount -= 1
-                        OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
-                        OUTPUT_IMAGE[horse_y][horse_x] = "."
-                        horse_x = horse_x + horse_attack_x
-                        horse_y = horse_y + horse_attack_y
-                        flag_horse_attack = True
-                elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W2':     
-                    hp_w2 -= 1
-                    if hp_w2 == 0:
-                        wolfs_amount -= 1
-                        OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
-                        OUTPUT_IMAGE[horse_y][horse_x] = "."
-                        horse_x = horse_x + horse_attack_x
-                        horse_y = horse_y + horse_attack_y
-                        flag_horse_attack = True
-                elif OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] == 'W3':
-                    hp_w3 -= 1
-                    if hp_w3 == 0:
-                        wolfs_amount -= 1
-                        OUTPUT_IMAGE[horse_y + horse_attack_y][horse_x + horse_attack_x] = 'H'
-                        OUTPUT_IMAGE[horse_y][horse_x] = "."
-                        horse_x = horse_x + horse_attack_x
-                        horse_y = horse_y + horse_attack_y
-                        flag_horse_attack = True
-                else:
-                    print('Ошибка. Введите корректное направление атаки.')  
         else:
                     print('Введите корректное направление атаки из приведенного списка.')  
 
@@ -845,7 +813,7 @@ while wolfs_amount > 0:
            print(word, end="")
         print("\n", end="")
 
-    print('\n')
+    print('Теперь ход волков:\n')
 
     #Ход первого волка.
     w1_moveX = 0
@@ -862,7 +830,7 @@ while wolfs_amount > 0:
                 if OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] == ".":  
                     OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] = 'W1'  
             except IndexError:
-                pass
+                continue
             else: 
                 OUTPUT_IMAGE[w1_y][w1_x] = "."
                 w1_x = w1_x + w1_moveX
@@ -875,7 +843,7 @@ while wolfs_amount > 0:
                 if OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] == ".":  
                     OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] = 'W1'  
             except IndexError:
-                pass
+                continue
             else: 
                 OUTPUT_IMAGE[w1_y][w1_x] = "."
                 w1_x = w1_x + w1_moveX
@@ -888,7 +856,7 @@ while wolfs_amount > 0:
                 if OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] == ".":  
                     OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] = 'W1'  
             except IndexError:
-                pass
+                continue
             else: 
                 OUTPUT_IMAGE[w1_y][w1_x] = "."
                 w1_x = w1_x + w1_moveX
@@ -901,7 +869,7 @@ while wolfs_amount > 0:
                 if OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] == ".":  
                     OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] = 'W1'  
             except IndexError:
-                pass
+                continue
             else: 
                 OUTPUT_IMAGE[w1_y][w1_x] = "."
                 w1_x = w1_x + w1_moveX
@@ -917,7 +885,7 @@ while wolfs_amount > 0:
                 if OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] == ".":  
                     OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] = 'W1'  
             except IndexError:
-                pass
+                continue
             else: 
                 OUTPUT_IMAGE[w1_y][w1_x] = "."
                 w1_x = w1_x + w1_moveX
@@ -930,7 +898,7 @@ while wolfs_amount > 0:
                 if OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] == ".":  
                     OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] = 'W1'  
             except IndexError:
-                pass
+                continue
             else: 
                 OUTPUT_IMAGE[w1_y][w1_x] = "."
                 w1_x = w1_x + w1_moveX
@@ -943,7 +911,7 @@ while wolfs_amount > 0:
                 if OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] == ".":  
                     OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] = 'W1'  
             except IndexError:
-                pass
+                continue
             else: 
                 OUTPUT_IMAGE[w1_y][w1_x] = "."
                 w1_x = w1_x + w1_moveX
@@ -956,7 +924,7 @@ while wolfs_amount > 0:
                 if OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] == ".":  
                     OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] = 'W1'  
             except IndexError:
-                pass
+                continue
             else: 
                 OUTPUT_IMAGE[w1_y][w1_x] = "."
                 w1_x = w1_x + w1_moveX
@@ -978,7 +946,7 @@ while wolfs_amount > 0:
                 if OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] == ".":  
                     OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] = 'W2'  
             except IndexError:
-                pass
+                continue
             else: 
                 OUTPUT_IMAGE[w2_y][w2_x] = "."
                 w2_x = w2_x + w2_moveX
@@ -991,7 +959,7 @@ while wolfs_amount > 0:
                 if OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] == ".":  
                     OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] = 'W2'  
             except IndexError:
-                pass
+                continue
             else: 
                 OUTPUT_IMAGE[w2_y][w2_x] = "."
                 w2_x = w2_x + w2_moveX
@@ -1004,7 +972,7 @@ while wolfs_amount > 0:
                 if OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] == ".":  
                     OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] = 'W2'  
             except IndexError:
-                pass
+                continue
             else: 
                 OUTPUT_IMAGE[w2_y][w2_x] = "."
                 w2_x = w2_x + w2_moveX
@@ -1017,7 +985,7 @@ while wolfs_amount > 0:
                 if OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] == ".":  
                     OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] = 'W1'  
             except IndexError:
-                pass
+                continue
             else: 
                 OUTPUT_IMAGE[w2_y][w2_x] = "."
                 w2_x = w2_x + w2_moveX
@@ -1033,7 +1001,7 @@ while wolfs_amount > 0:
                 if OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] == ".":  
                     OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] = 'W2'  
             except IndexError:
-                pass
+                continue
             else: 
                 OUTPUT_IMAGE[w2_y][w2_x] = "."
                 w2_x = w2_x + w2_moveX
@@ -1046,7 +1014,7 @@ while wolfs_amount > 0:
                 if OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] == ".":  
                     OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] = 'W2'  
             except IndexError:
-                pass
+                continue
             else: 
                 OUTPUT_IMAGE[w2_y][w2_x] = "."
                 w2_x = w2_x + w2_moveX
@@ -1059,7 +1027,7 @@ while wolfs_amount > 0:
                 if OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] == ".":  
                     OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] = 'W2'  
             except IndexError:
-                pass
+                continue
             else: 
                 OUTPUT_IMAGE[w2_y][w2_x] = "."
                 w2_x = w2_x + w2_moveX
@@ -1072,7 +1040,7 @@ while wolfs_amount > 0:
                 if OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] == ".":  
                     OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] = 'W2'  
             except IndexError:
-                pass
+                continue
             else: 
                 OUTPUT_IMAGE[w2_y][w2_x] = "."
                 w2_x = w2_x + w2_moveX
@@ -1094,7 +1062,7 @@ while wolfs_amount > 0:
                 if OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] == ".":  
                     OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] = 'W3'  
             except IndexError:
-                pass
+                continue
             else: 
                 OUTPUT_IMAGE[w3_y][w3_x] = "."
                 w3_x = w3_x + w3_moveX
@@ -1107,7 +1075,7 @@ while wolfs_amount > 0:
                 if OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] == ".":  
                     OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] = 'W3'  
             except IndexError:
-                pass
+                continue
             else: 
                 OUTPUT_IMAGE[w3_y][w3_x] = "."
                 w3_x = w3_x + w3_moveX
@@ -1120,7 +1088,7 @@ while wolfs_amount > 0:
                 if OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] == ".":  
                     OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] = 'W3'  
             except IndexError:
-                pass
+                continue
             else: 
                 OUTPUT_IMAGE[w3_y][w3_x] = "."
                 w3_x = w3_x + w3_moveX
@@ -1133,7 +1101,7 @@ while wolfs_amount > 0:
                 if OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] == ".":  
                     OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] = 'W3'  
             except IndexError:
-                pass
+                continue
             else: 
                 OUTPUT_IMAGE[w3_y][w3_x] = "."
                 w3_x = w3_x + w3_moveX
@@ -1149,7 +1117,7 @@ while wolfs_amount > 0:
                 if OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] == ".":  
                     OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] = 'W3'  
             except IndexError:
-                pass
+                continue
             else: 
                 OUTPUT_IMAGE[w3_y][w3_x] = "."
                 w3_x = w3_x + w3_moveX
@@ -1162,7 +1130,7 @@ while wolfs_amount > 0:
                 if OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] == ".":  
                     OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] = 'W3'  
             except IndexError:
-                pass
+                continue
             else: 
                 OUTPUT_IMAGE[w3_y][w3_x] = "."
                 w3_x = w3_x + w3_moveX
@@ -1175,7 +1143,7 @@ while wolfs_amount > 0:
                 if OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] == ".":  
                     OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] = 'W3'  
             except IndexError:
-                pass
+                continue
             else: 
                 OUTPUT_IMAGE[w3_y][w3_x] = "."
                 w3_x = w3_x + w3_moveX
@@ -1188,7 +1156,7 @@ while wolfs_amount > 0:
                 if OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] == ".":  
                     OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] = 'W3'  
             except IndexError:
-                pass
+                continue
             else: 
                 OUTPUT_IMAGE[w3_y][w3_x] = "."
                 w3_x = w3_x + w3_moveX
