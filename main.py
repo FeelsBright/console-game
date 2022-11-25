@@ -16,7 +16,7 @@ OUTPUT_IMAGE = [
         [".", ".", ".", ".", ".", ".", ".", "."],
         ]
 
-#Ставим фигуры по местам, инициализируем заданные правилами игры переменные.
+#Ставим фигуры по местам, инициализируем заданные правилами игры переменные. Буквенные короткие перменные для более простой отладки кода.
 OUTPUT_IMAGE[6][2] = 'O'
 OUTPUT_IMAGE[7][6] = 'H'
 OUTPUT_IMAGE[1][4] = 'W1'
@@ -125,125 +125,118 @@ while wolfs_amount > 0:
             try:
                 if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
                     OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] = 'O'
+                    OUTPUT_IMAGE[officer_y][officer_x] = "."
+                    officer_x = officer_x + officer_moveX
+                    officer_y = officer_y + officer_moveY
+                    flag_officer = True
                 else:
-                    print('Поле занято другим существом. Выберите другую клетку.')
+                    print('Поле занято другим существом. Выберите другую клетку.\n')
             except IndexError:
-                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-            else:
-                OUTPUT_IMAGE[officer_y][officer_x] = "."
-                officer_x = officer_x + officer_moveX
-                officer_y = officer_y + officer_moveY
-                flag_officer = True
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения\n')                
         elif officer_move == 'вверх':
             officer_moveX = 0
             officer_moveY = -1
             try:
                 if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
                     OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] = 'O'
+                    OUTPUT_IMAGE[officer_y][officer_x] = "."
+                    officer_x = officer_x + officer_moveX
+                    officer_y = officer_y + officer_moveY
+                    flag_officer = True
                 else:
-                    print('Поле занято другим существом. Выберите другую клетку.')
+                    print('Поле занято другим существом. Выберите другую клетку.\n')
             except IndexError:
-                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-            else:
-                OUTPUT_IMAGE[officer_y][officer_x] = "."
-                officer_x = officer_x + officer_moveX
-                officer_y = officer_y + officer_moveY
-                flag_officer = True
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения\n') 
         elif officer_move == 'вверх вправо':
             officer_moveX = +1
             officer_moveY = -1
             try:
                 if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
                     OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] = 'O'
+                    OUTPUT_IMAGE[officer_y][officer_x] = "."
+                    officer_x = officer_x + officer_moveX
+                    officer_y = officer_y + officer_moveY
+                    flag_officer = True
                 else:
-                    print('Поле занято другим существом. Выберите другую клетку.')
+                    print('Поле занято другим существом. Выберите другую клетку.\n')
             except IndexError:
-                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-            else:
-                OUTPUT_IMAGE[officer_y][officer_x] = "."
-                officer_x = officer_x + officer_moveX
-                officer_y = officer_y + officer_moveY
-                flag_officer = True
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения\n') 
         elif officer_move == 'влево':
             officer_moveX = -1
             officer_moveY = 0   
             try:
                 if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
                     OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] = 'O'
+                    OUTPUT_IMAGE[officer_y][officer_x] = "."
+                    officer_x = officer_x + officer_moveX
+                    officer_y = officer_y + officer_moveY
+                    flag_officer = True
                 else:
-                    print('Поле занято другим существом. Выберите другую клетку.')
+                    print('Поле занято другим существом. Выберите другую клетку.\n')
             except IndexError:
-                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-            else:
-                OUTPUT_IMAGE[officer_y][officer_x] = "."
-                officer_x = officer_x + officer_moveX
-                officer_y = officer_y + officer_moveY
-                flag_officer = True
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения\n') 
         elif officer_move == 'остаться на месте':
             officer_moveX = 0
             officer_moveY = 0
+            flag_officer = True
         elif officer_move == 'вправо':
             officer_moveX = +1
             officer_moveY = 0
             try:
                 if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
                     OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] = 'O'
+                    OUTPUT_IMAGE[officer_y][officer_x] = "."
+                    officer_x = officer_x + officer_moveX
+                    officer_y = officer_y + officer_moveY
+                    flag_officer = True
                 else:
-                    print('Поле занято другим существом. Выберите другую клетку.')
+                    print('Поле занято другим существом. Выберите другую клетку.\n')
             except IndexError:
-                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-            else:
-                OUTPUT_IMAGE[officer_y][officer_x] = "."
-                officer_x = officer_x + officer_moveX
-                officer_y = officer_y + officer_moveY
-                flag_officer = True
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения\n') 
         elif officer_move == 'вниз влево':
             officer_moveX = -1
             officer_moveY = +1
             try:
                 if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
                     OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] = 'O'
+                    OUTPUT_IMAGE[officer_y][officer_x] = "."
+                    officer_x = officer_x + officer_moveX
+                    officer_y = officer_y + officer_moveY
+                    flag_officer = True
                 else:
-                    print('Поле занято другим существом. Выберите другую клетку.')
+                    print('Поле занято другим существом. Выберите другую клетку.\n')
             except IndexError:
-                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-            else:
-                OUTPUT_IMAGE[officer_y][officer_x] = "."
-                officer_x = officer_x + officer_moveX
-                officer_y = officer_y + officer_moveY
-                flag_officer = True
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения\n') 
         elif officer_move == 'вниз':
             officer_moveX = 0
             officer_moveY = +1
             try:
                 if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
                     OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] = 'O'
+                    OUTPUT_IMAGE[officer_y][officer_x] = "."
+                    officer_x = officer_x + officer_moveX
+                    officer_y = officer_y + officer_moveY
+                    flag_officer = True
                 else:
-                    print('Поле занято другим существом. Выберите другую клетку.')
+                    print('Поле занято другим существом. Выберите другую клетку.\n')
             except IndexError:
-                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-            else:
-                OUTPUT_IMAGE[officer_y][officer_x] = "."
-                officer_x = officer_x + officer_moveX
-                officer_y = officer_y + officer_moveY
-                flag_officer = True
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения\n') 
         elif officer_move == 'вниз вправо':
             officer_moveX = +1
             officer_moveY = +1
             try:
                 if OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] not in ['H', 'W1', 'W2', 'W3']:
                     OUTPUT_IMAGE[officer_y + officer_moveY][officer_x + officer_moveX] = 'O'
+                    OUTPUT_IMAGE[officer_y][officer_x] = "."
+                    officer_x = officer_x + officer_moveX
+                    officer_y = officer_y + officer_moveY
+                    flag_officer = True
                 else:
-                    print('Поле занято другим существом. Выберите другую клетку.')
+                    print('Поле занято другим существом. Выберите другую клетку.\n')
             except IndexError:
-                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения')
-            else:
-                OUTPUT_IMAGE[officer_y][officer_x] = "."
-                officer_x = officer_x + officer_moveX
-                officer_y = officer_y + officer_moveY
-                flag_officer = True
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения\n') 
         else:
-            print('Введите корректное направление движения офицера.')
+            print('Введите корректное направление движения офицера.\n')
 
     #Вывод игрового поля в консоль после хода офицера.
     for line_words in OUTPUT_IMAGE:
@@ -257,6 +250,7 @@ while wolfs_amount > 0:
     while flag_officer_attack == False:  
         officer_attack = input('В каком направлении атакует офицер? Возможные варианты: вверх влево, вверх вправо, вниз влево, вниз вправо, пропуск атаки.\n')
         if officer_attack == 'пропуск атаки':
+            flag_officer_attack == True
             break
         elif officer_attack == 'вверх влево':
             officer_attack_x = -1
@@ -279,9 +273,11 @@ while wolfs_amount > 0:
                         wolfs_amount -= 1
                         flag_officer_attack = True
                     else:
-                        print('Ошибка. Введите поле, на котором присутствуют объекты для атаки или выберите пропуск хода.')
+                        print('Ошибка. Введите поле, на котором присутствуют объекты для атаки или выберите пропуск хода.\n')
+                else:
+                    print('Выберите клетку для атаки, на которой присутствует волк.\n')
             except IndexError:
-                print('Вы вышли за границы игрового поля. Введите существующую клетку для атаки')    
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для атаки\n')    
         elif officer_attack == 'вверх вправо':
             officer_attack_x = +1
             officer_attack_y = -1
@@ -303,9 +299,11 @@ while wolfs_amount > 0:
                         wolfs_amount -= 1
                         flag_officer_attack = True
                     else:
-                        print('Ошибка. Введите поле, на котором присутствуют объекты для атаки или выберите пропуск хода.')
+                        print('Ошибка. Введите поле, на котором присутствуют объекты для атаки или выберите пропуск хода.\n')
+                else:
+                    print('Выберите клетку для атаки, на которой присутствует волк.\n')
             except IndexError:
-                print('Вы вышли за границы игрового поля. Введите существующую клетку для атаки') 
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для атаки\n') 
         elif officer_attack == 'вниз влево':
             officer_attack_x = -1
             officer_attack_y = +1
@@ -327,9 +325,11 @@ while wolfs_amount > 0:
                         wolfs_amount -= 1
                         flag_officer_attack = True
                     else:
-                        print('Ошибка. Введите поле, на котором присутствуют объекты для атаки или выберите пропуск хода.')
+                        print('Ошибка. Введите поле, на котором присутствуют объекты для атаки или выберите пропуск хода.\n')
+                else:
+                    print('Выберите клетку для атаки, на которой присутствует волк.\n')
             except IndexError:
-                print('Вы вышли за границы игрового поля. Введите существующую клетку для атаки') 
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для атаки\n') 
         elif officer_attack == 'вниз вправо':
             officer_attack_x = +1
             officer_attack_y = +1
@@ -351,11 +351,13 @@ while wolfs_amount > 0:
                         wolfs_amount -= 1
                         flag_officer_attack = True
                     else:
-                        print('Ошибка. Введите поле, на котором присутствуют объекты для атаки или выберите пропуск хода.')
+                        print('Ошибка. Введите поле, на котором присутствуют объекты для атаки или выберите пропуск хода.\n')
+                else:
+                    print('Выберите клетку для атаки, на которой присутствует волк.\n')
             except IndexError:
-                print('Вы вышли за границы игрового поля. Введите существующую клетку для атаки') 
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для атаки\n') 
         else: 
-            print('Введите корректное направление атаки офицера из перечисленного списка.')
+            print('Введите корректное направление атаки офицера из перечисленного списка.\n')
 
     #Вывод игрового поля в консоль после атаки офицера.
     for line_words in OUTPUT_IMAGE:
@@ -381,9 +383,9 @@ while wolfs_amount > 0:
                     horse_y = horse_y + horse_moveY
                     flag_horse = True
                 else:
-                    print('Указанное поле занято.')
+                    print('Указанное поле занято.\n')
             except IndexError:
-                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.')            
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.\n')            
         elif horse_move == 'вверх на 2 и вправо на 1':
             horse_moveX = +1
             horse_moveY = -2
@@ -395,9 +397,9 @@ while wolfs_amount > 0:
                     horse_y = horse_y + horse_moveY
                     flag_horse = True
                 else:
-                    print('Указанное поле занято.')
+                    print('Указанное поле занято.\n')
             except IndexError:
-                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.')      
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.\n')      
         elif horse_move == 'влево на 2 и вверх на 1':
             horse_moveX = -1
             horse_moveY = -1
@@ -409,9 +411,9 @@ while wolfs_amount > 0:
                     horse_y = horse_y + horse_moveY
                     flag_horse = True
                 else:
-                    print('Указанное поле занято.')
+                    print('Указанное поле занято.\n')
             except IndexError:
-                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.')  
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.\n')  
         elif horse_move == 'влево на 2 и вниз на 1':
             horse_moveX = -2
             horse_moveY = +1  
@@ -423,9 +425,9 @@ while wolfs_amount > 0:
                     horse_y = horse_y + horse_moveY
                     flag_horse = True
                 else:
-                    print('Указанное поле занято.')
+                    print('Указанное поле занято.\n')
             except IndexError:
-                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.')  
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.\n')  
         elif horse_move == 'вниз на 2 и влево на 1':
             horse_moveX = -1
             horse_moveY = +2
@@ -437,9 +439,9 @@ while wolfs_amount > 0:
                     horse_y = horse_y + horse_moveY
                     flag_horse = True
                 else:
-                    print('Указанное поле занято.')
+                    print('Указанное поле занято.\n')
             except IndexError:
-                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.')  
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.\n')  
         elif horse_move == 'вниз на 2 и вправо на 1':
             horse_moveX = +1
             horse_moveY = +2
@@ -451,9 +453,9 @@ while wolfs_amount > 0:
                     horse_y = horse_y + horse_moveY
                     flag_horse = True
                 else:
-                    print('Указанное поле занято.')
+                    print('Указанное поле занято.\n')
             except IndexError:
-                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.') 
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.\n') 
         elif horse_move == 'вправо на 2 и вниз на 1':
             horse_moveX = +2
             horse_moveY = +1
@@ -465,9 +467,9 @@ while wolfs_amount > 0:
                     horse_y = horse_y + horse_moveY
                     flag_horse = True
                 else:
-                    print('Указанное поле занято.')
+                    print('Указанное поле занято.\n')
             except IndexError:
-                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.') 
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.\n') 
         elif horse_move == 'вправо на 2 и вверх на 1':
             horse_moveX = +2
             horse_moveY = -1
@@ -479,11 +481,11 @@ while wolfs_amount > 0:
                     horse_y = horse_y + horse_moveY
                     flag_horse = True
                 else:
-                    print('Указанное поле занято.')
+                    print('Указанное поле занято.\n')
             except IndexError:
-                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.') 
+                print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.\n') 
         else:
-            print('Введите корректное направление движения коня из перечисленного списка.')
+            print('Введите корректное направление движения коня из перечисленного списка.\n')
 
     #Вывод игрового поля в консоль после хода коня.
     for line_words in OUTPUT_IMAGE:
@@ -495,12 +497,12 @@ while wolfs_amount > 0:
     #Атака коня: выходим из цикла, когда получаем корректное направление атаки.
     horse_attack = 0
     flag_horse_attack = False
-    flag_enemy = False
     while flag_horse_attack == False:  
         horse_attack = input('В каком направлении атакует конь? Возможные варианты: вверх на 2 и влево на 1, вверх на 2 и вправо на 1, влево на 2 и вверх на 1, влево на 2 и вниз на 1, вниз на 2 и влево на 1, вниз на 2 и вправо на 1, вправо на 2 и вниз на 1, вправо на 2 и вверх на 1, пропуск атаки.\n')
         if horse_attack == 'пропуск атаки':
+            flag_horse_attack = True
             break
-        if horse_attack == 'вверх на 2 и влево на 1':
+        elif horse_attack == 'вверх на 2 и влево на 1':
             horse_attack_x = -1
             horse_attack_y = -2
             try:   
@@ -533,11 +535,11 @@ while wolfs_amount > 0:
                             horse_y = horse_y + horse_attack_y
                             flag_horse_attack = True
                     else:
-                        print('Ошибка. Введите корректную цель атаки.') 
+                        print('Ошибка. Введите корректную цель атаки.\n') 
                 else:
                     print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
             except IndexError:
-                print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.')
+                print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.\n')
         elif horse_attack == 'вверх на 2 и вправо на 1':
             horse_attack_x = +1
             horse_attack_y = -2
@@ -571,11 +573,11 @@ while wolfs_amount > 0:
                             horse_y = horse_y + horse_attack_y
                             flag_horse_attack = True
                     else:
-                        print('Ошибка. Введите корректную цель атаки.') 
+                        print('Ошибка. Введите корректную цель атаки.\n') 
                 else:
                     print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
             except IndexError:
-                print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.')
+                print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.\n')
         elif horse_attack == 'влево на 2 и вверх на 1':
             horse_attack_x = -2
             horse_attack_y = -1
@@ -609,11 +611,11 @@ while wolfs_amount > 0:
                             horse_y = horse_y + horse_attack_y
                             flag_horse_attack = True
                     else:
-                        print('Ошибка. Введите корректную цель атаки.') 
+                        print('Ошибка. Введите корректную цель атаки.\n') 
                 else:
                     print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
             except IndexError:
-                print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.') 
+                print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.\n') 
         elif horse_attack == 'влево на 2 и вниз на 1':
             horse_attack_x = -2
             horse_attack_y = +1
@@ -647,11 +649,11 @@ while wolfs_amount > 0:
                             horse_y = horse_y + horse_attack_y
                             flag_horse_attack = True
                     else:
-                        print('Ошибка. Введите корректную цель атаки.') 
+                        print('Ошибка. Введите корректную цель атаки.\n') 
                 else:
                     print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
             except IndexError:
-                print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.')
+                print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.\n')
         elif horse_attack == 'вниз на 2 и влево на 1':
             horse_attack_x = -1
             horse_attack_y = +2
@@ -685,11 +687,11 @@ while wolfs_amount > 0:
                             horse_y = horse_y + horse_attack_y
                             flag_horse_attack = True
                     else:
-                        print('Ошибка. Введите корректную цель атаки.') 
+                        print('Ошибка. Введите корректную цель атаки.\n') 
                 else:
                     print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
             except IndexError:
-                print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.')  
+                print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.\n')  
         elif horse_attack == 'вниз на 2 и вправо на 1':
             horse_attack_x = +1
             horse_attack_y = +2
@@ -723,11 +725,11 @@ while wolfs_amount > 0:
                             horse_y = horse_y + horse_attack_y
                             flag_horse_attack = True
                     else:
-                        print('Ошибка. Введите корректную цель атаки.') 
+                        print('Ошибка. Введите корректную цель атаки.\n') 
                 else:
                     print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
             except IndexError:
-                print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.')
+                print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.\n')
         elif horse_attack == 'вправо на 2 и вниз на 1':
             horse_attack_x = +2
             horse_attack_y = +1
@@ -761,11 +763,11 @@ while wolfs_amount > 0:
                             horse_y = horse_y + horse_attack_y
                             flag_horse_attack = True
                     else:
-                        print('Ошибка. Введите корректную цель атаки.') 
+                        print('Ошибка. Введите корректную цель атаки.\n') 
                 else:
                     print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
             except IndexError:
-                print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.')
+                print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.\n')
         elif horse_attack == 'вправо на 2 и вверх на 1':
             horse_attack_x = +2
             horse_attack_y = -1
@@ -799,13 +801,13 @@ while wolfs_amount > 0:
                             horse_y = horse_y + horse_attack_y
                             flag_horse_attack = True
                     else:
-                        print('Ошибка. Введите корректную цель атаки.') 
+                        print('Ошибка. Введите корректную цель атаки.\n') 
                 else:
                     print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
             except IndexError:
-                print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.')
+                print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.\n')
         else:
-                    print('Введите корректное направление атаки из приведенного списка.')  
+                    print('Введите корректное направление атаки из приведенного списка.\n')  
 
     #Вывод игрового поля в консоль после атаки коня.
     for line_words in OUTPUT_IMAGE:
@@ -829,107 +831,100 @@ while wolfs_amount > 0:
             try:   
                 if OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] == ".":  
                     OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] = 'W1'  
+                    OUTPUT_IMAGE[w1_y][w1_x] = "."
+                    w1_x = w1_x + w1_moveX
+                    w1_y = w1_y + w1_moveY
+                    flag_wolf1 = True
             except IndexError:
                 continue
-            else: 
-                OUTPUT_IMAGE[w1_y][w1_x] = "."
-                w1_x = w1_x + w1_moveX
-                w1_y = w1_y + w1_moveY
-                flag_wolf1 = True
         elif w1_move == 2:
             w1_moveX = 0
             w1_moveY = -1
             try:   
                 if OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] == ".":  
                     OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] = 'W1'  
+                    OUTPUT_IMAGE[w1_y][w1_x] = "."
+                    w1_x = w1_x + w1_moveX
+                    w1_y = w1_y + w1_moveY
+                    flag_wolf1 = True  
             except IndexError:
                 continue
-            else: 
-                OUTPUT_IMAGE[w1_y][w1_x] = "."
-                w1_x = w1_x + w1_moveX
-                w1_y = w1_y + w1_moveY
-                flag_wolf1 = True
         elif w1_move == 3:
             w1_moveX = +1
             w1_moveY = -1
             try:   
                 if OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] == ".":  
                     OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] = 'W1'  
+                    OUTPUT_IMAGE[w1_y][w1_x] = "."
+                    w1_x = w1_x + w1_moveX
+                    w1_y = w1_y + w1_moveY
+                    flag_wolf1 = True 
             except IndexError:
                 continue
-            else: 
-                OUTPUT_IMAGE[w1_y][w1_x] = "."
-                w1_x = w1_x + w1_moveX
-                w1_y = w1_y + w1_moveY
-                flag_wolf1 = True
         elif w1_move == 4:
             w1_moveX = -1
             w1_moveY = 0
             try:   
                 if OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] == ".":  
                     OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] = 'W1'  
+                    OUTPUT_IMAGE[w1_y][w1_x] = "."
+                    w1_x = w1_x + w1_moveX
+                    w1_y = w1_y + w1_moveY
+                    flag_wolf1 = True  
             except IndexError:
                 continue
-            else: 
-                OUTPUT_IMAGE[w1_y][w1_x] = "."
-                w1_x = w1_x + w1_moveX
-                w1_y = w1_y + w1_moveY
-                flag_wolf1 = True
         elif w1_move == 5:
             w1_moveX = 0
             w1_moveY = 0
+            flag_wolf1 = True
         elif w1_move == 6:
             w1_moveX = +1
             w1_moveY = 0
             try:   
                 if OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] == ".":  
                     OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] = 'W1'  
+                    OUTPUT_IMAGE[w1_y][w1_x] = "."
+                    w1_x = w1_x + w1_moveX
+                    w1_y = w1_y + w1_moveY
+                    flag_wolf1 = True 
             except IndexError:
                 continue
-            else: 
-                OUTPUT_IMAGE[w1_y][w1_x] = "."
-                w1_x = w1_x + w1_moveX
-                w1_y = w1_y + w1_moveY
-                flag_wolf1 = True
         elif w1_move == 7:
             w1_moveX = -1
             w1_moveY = +1
             try:   
                 if OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] == ".":  
                     OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] = 'W1'  
+                    OUTPUT_IMAGE[w1_y][w1_x] = "."
+                    w1_x = w1_x + w1_moveX
+                    w1_y = w1_y + w1_moveY
+                    flag_wolf1 = True  
             except IndexError:
                 continue
-            else: 
-                OUTPUT_IMAGE[w1_y][w1_x] = "."
-                w1_x = w1_x + w1_moveX
-                w1_y = w1_y + w1_moveY
-                flag_wolf1 = True
         elif w1_move == 8:
             w1_moveX = 0
             w1_moveY = +1
             try:   
                 if OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] == ".":  
                     OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] = 'W1'  
+                    OUTPUT_IMAGE[w1_y][w1_x] = "."
+                    w1_x = w1_x + w1_moveX
+                    w1_y = w1_y + w1_moveY
+                    flag_wolf1 = True 
             except IndexError:
                 continue
-            else: 
-                OUTPUT_IMAGE[w1_y][w1_x] = "."
-                w1_x = w1_x + w1_moveX
-                w1_y = w1_y + w1_moveY
-                flag_wolf1 = True
         elif w1_move == 9:
             w1_moveX = +1
             w1_moveY = +1
             try:   
                 if OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] == ".":  
                     OUTPUT_IMAGE[w1_y + w1_moveY][w1_x + w1_moveX] = 'W1'  
+                    OUTPUT_IMAGE[w1_y][w1_x] = "."
+                    w1_x = w1_x + w1_moveX
+                    w1_y = w1_y + w1_moveY
+                    flag_wolf1 = True 
             except IndexError:
                 continue
-            else: 
-                OUTPUT_IMAGE[w1_y][w1_x] = "."
-                w1_x = w1_x + w1_moveX
-                w1_y = w1_y + w1_moveY
-                flag_wolf1 = True
         
     #Ход второго волка.
     w2_moveX = 0
@@ -945,107 +940,100 @@ while wolfs_amount > 0:
             try:   
                 if OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] == ".":  
                     OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] = 'W2'  
+                    OUTPUT_IMAGE[w2_y][w2_x] = "."
+                    w2_x = w2_x + w2_moveX
+                    w2_y = w2_y + w2_moveY
+                    flag_wolf1 = True
             except IndexError:
                 continue
-            else: 
-                OUTPUT_IMAGE[w2_y][w2_x] = "."
-                w2_x = w2_x + w2_moveX
-                w2_y = w2_y + w2_moveY
-                flag_wolf1 = True
         elif w2_move == 2:
             w2_moveX = 0
             w2_moveY = -1
             try:   
                 if OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] == ".":  
                     OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] = 'W2'  
+                    OUTPUT_IMAGE[w2_y][w2_x] = "."
+                    w2_x = w2_x + w2_moveX
+                    w2_y = w2_y + w2_moveY
+                    flag_wolf1 = True  
             except IndexError:
                 continue
-            else: 
-                OUTPUT_IMAGE[w2_y][w2_x] = "."
-                w2_x = w2_x + w2_moveX
-                w2_y = w2_y + w2_moveY
-                flag_wolf1 = True
         elif w2_move == 3:
             w2_moveX = +1
             w2_moveY = -1
             try:   
                 if OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] == ".":  
                     OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] = 'W2'  
+                    OUTPUT_IMAGE[w2_y][w2_x] = "."
+                    w2_x = w2_x + w2_moveX
+                    w2_y = w2_y + w2_moveY
+                    flag_wolf1 = True 
             except IndexError:
                 continue
-            else: 
-                OUTPUT_IMAGE[w2_y][w2_x] = "."
-                w2_x = w2_x + w2_moveX
-                w2_y = w2_y + w2_moveY
-                flag_wolf1 = True
         elif w2_move == 4:
             w2_moveX = -1
             w2_moveY = 0
             try:   
                 if OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] == ".":  
-                    OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] = 'W1'  
+                    OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] = 'W2'  
+                    OUTPUT_IMAGE[w2_y][w2_x] = "."
+                    w2_x = w2_x + w2_moveX
+                    w2_y = w2_y + w2_moveY
+                    flag_wolf1 = True  
             except IndexError:
                 continue
-            else: 
-                OUTPUT_IMAGE[w2_y][w2_x] = "."
-                w2_x = w2_x + w2_moveX
-                w2_y = w2_y + w2_moveY
-                flag_wolf1 = True
         elif w2_move == 5:
             w2_moveX = 0
             w2_moveY = 0
+            flag_wolf1 = True
         elif w2_move == 6:
             w2_moveX = +1
             w2_moveY = 0
             try:   
                 if OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] == ".":  
                     OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] = 'W2'  
+                    OUTPUT_IMAGE[w2_y][w2_x] = "."
+                    w2_x = w2_x + w2_moveX
+                    w2_y = w2_y + w2_moveY
+                    flag_wolf1 = True 
             except IndexError:
                 continue
-            else: 
-                OUTPUT_IMAGE[w2_y][w2_x] = "."
-                w2_x = w2_x + w2_moveX
-                w2_y = w2_y + w2_moveY
-                flag_wolf1 = True
         elif w2_move == 7:
             w2_moveX = -1
             w2_moveY = +1
             try:   
                 if OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] == ".":  
                     OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] = 'W2'  
+                    OUTPUT_IMAGE[w2_y][w2_x] = "."
+                    w2_x = w2_x + w2_moveX
+                    w2_y = w2_y + w2_moveY
+                    flag_wolf1 = True  
             except IndexError:
                 continue
-            else: 
-                OUTPUT_IMAGE[w2_y][w2_x] = "."
-                w2_x = w2_x + w2_moveX
-                w2_y = w2_y + w2_moveY
-                flag_wolf1 = True
         elif w2_move == 8:
             w2_moveX = 0
             w2_moveY = +1
             try:   
                 if OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] == ".":  
                     OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] = 'W2'  
+                    OUTPUT_IMAGE[w2_y][w2_x] = "."
+                    w2_x = w2_x + w2_moveX
+                    w2_y = w2_y + w2_moveY
+                    flag_wolf1 = True 
             except IndexError:
                 continue
-            else: 
-                OUTPUT_IMAGE[w2_y][w2_x] = "."
-                w2_x = w2_x + w2_moveX
-                w2_y = w2_y + w2_moveY
-                flag_wolf1 = True
         elif w2_move == 9:
             w2_moveX = +1
             w2_moveY = +1
             try:   
                 if OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] == ".":  
                     OUTPUT_IMAGE[w2_y + w2_moveY][w2_x + w2_moveX] = 'W2'  
+                    OUTPUT_IMAGE[w2_y][w2_x] = "."
+                    w2_x = w2_x + w2_moveX
+                    w2_y = w2_y + w2_moveY
+                    flag_wolf1 = True 
             except IndexError:
                 continue
-            else: 
-                OUTPUT_IMAGE[w2_y][w2_x] = "."
-                w2_x = w2_x + w2_moveX
-                w2_y = w2_y + w2_moveY
-                flag_wolf1 = True
     
     #Ход третьего волка.
     w3_moveX = 0
@@ -1061,107 +1049,100 @@ while wolfs_amount > 0:
             try:   
                 if OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] == ".":  
                     OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] = 'W3'  
+                    OUTPUT_IMAGE[w3_y][w3_x] = "."
+                    w3_x = w3_x + w3_moveX
+                    w3_y = w3_y + w3_moveY
+                    flag_wolf1 = True
             except IndexError:
                 continue
-            else: 
-                OUTPUT_IMAGE[w3_y][w3_x] = "."
-                w3_x = w3_x + w3_moveX
-                w3_y = w3_y + w3_moveY
-                flag_wolf1 = True
         elif w3_move == 2:
             w3_moveX = 0
             w3_moveY = -1
             try:   
                 if OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] == ".":  
                     OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] = 'W3'  
+                    OUTPUT_IMAGE[w3_y][w3_x] = "."
+                    w3_x = w3_x + w3_moveX
+                    w3_y = w3_y + w3_moveY
+                    flag_wolf1 = True  
             except IndexError:
                 continue
-            else: 
-                OUTPUT_IMAGE[w3_y][w3_x] = "."
-                w3_x = w3_x + w3_moveX
-                w3_y = w3_y + w3_moveY
-                flag_wolf1 = True
         elif w3_move == 3:
             w3_moveX = +1
             w3_moveY = -1
             try:   
                 if OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] == ".":  
                     OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] = 'W3'  
+                    OUTPUT_IMAGE[w3_y][w3_x] = "."
+                    w3_x = w3_x + w3_moveX
+                    w3_y = w3_y + w3_moveY
+                    flag_wolf1 = True 
             except IndexError:
                 continue
-            else: 
-                OUTPUT_IMAGE[w3_y][w3_x] = "."
-                w3_x = w3_x + w3_moveX
-                w3_y = w3_y + w3_moveY
-                flag_wolf1 = True
         elif w3_move == 4:
             w3_moveX = -1
             w3_moveY = 0
             try:   
                 if OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] == ".":  
                     OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] = 'W3'  
+                    OUTPUT_IMAGE[w3_y][w3_x] = "."
+                    w3_x = w3_x + w3_moveX
+                    w3_y = w3_y + w3_moveY
+                    flag_wolf1 = True  
             except IndexError:
                 continue
-            else: 
-                OUTPUT_IMAGE[w3_y][w3_x] = "."
-                w3_x = w3_x + w3_moveX
-                w3_y = w3_y + w3_moveY
-                flag_wolf1 = True
         elif w3_move == 5:
             w3_moveX = 0
             w3_moveY = 0
+            flag_wolf1 = True
         elif w3_move == 6:
             w3_moveX = +1
             w3_moveY = 0
             try:   
                 if OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] == ".":  
                     OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] = 'W3'  
+                    OUTPUT_IMAGE[w3_y][w3_x] = "."
+                    w3_x = w3_x + w3_moveX
+                    w3_y = w3_y + w3_moveY
+                    flag_wolf1 = True 
             except IndexError:
                 continue
-            else: 
-                OUTPUT_IMAGE[w3_y][w3_x] = "."
-                w3_x = w3_x + w3_moveX
-                w3_y = w3_y + w3_moveY
-                flag_wolf1 = True
         elif w3_move == 7:
             w3_moveX = -1
             w3_moveY = +1
             try:   
                 if OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] == ".":  
                     OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] = 'W3'  
+                    OUTPUT_IMAGE[w3_y][w3_x] = "."
+                    w3_x = w3_x + w3_moveX
+                    w3_y = w3_y + w3_moveY
+                    flag_wolf1 = True  
             except IndexError:
                 continue
-            else: 
-                OUTPUT_IMAGE[w3_y][w3_x] = "."
-                w3_x = w3_x + w3_moveX
-                w3_y = w3_y + w3_moveY
-                flag_wolf1 = True
         elif w3_move == 8:
             w3_moveX = 0
             w3_moveY = +1
             try:   
                 if OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] == ".":  
                     OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] = 'W3'  
+                    OUTPUT_IMAGE[w3_y][w3_x] = "."
+                    w3_x = w3_x + w3_moveX
+                    w3_y = w3_y + w3_moveY
+                    flag_wolf1 = True 
             except IndexError:
                 continue
-            else: 
-                OUTPUT_IMAGE[w3_y][w3_x] = "."
-                w3_x = w3_x + w3_moveX
-                w3_y = w3_y + w3_moveY
-                flag_wolf1 = True
         elif w3_move == 9:
             w3_moveX = +1
             w3_moveY = +1
             try:   
                 if OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] == ".":  
                     OUTPUT_IMAGE[w3_y + w3_moveY][w3_x + w3_moveX] = 'W3'  
+                    OUTPUT_IMAGE[w3_y][w3_x] = "."
+                    w3_x = w3_x + w3_moveX
+                    w3_y = w3_y + w3_moveY
+                    flag_wolf1 = True 
             except IndexError:
                 continue
-            else: 
-                OUTPUT_IMAGE[w3_y][w3_x] = "."
-                w3_x = w3_x + w3_moveX
-                w3_y = w3_y + w3_moveY
-                flag_wolf1 = True
     
     #Вывод игрового поля в консоль после того, как все 3 волка походили.
     for line_words in OUTPUT_IMAGE:
