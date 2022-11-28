@@ -122,8 +122,8 @@ while wolfs_amount > 0:
     officer_moveY = 0
     flag_officer = False
     while flag_officer == False:
-        officer_move = input('Куда ходит офицер? Возможные варианты: вверх влево, вверх, вверх вправо, влево, остаться на месте, вправо, вниз влево, вниз, вниз вправо\n')
-        if officer_move == 'вверх влево':
+        officer_move = input('Куда ходит офицер? Возможные варианты: 0 - остаться на месте, 1 - вверх влево, 2 - вверх, 3 - вверх вправо, 4 - влево, 5 - вправо, 6 - вниз влево, 7 - вниз, 8 - вниз вправо\n')
+        if officer_move == '1':
             officer_moveX = -1
             officer_moveY = -1
             try:
@@ -137,7 +137,7 @@ while wolfs_amount > 0:
                     print('Поле занято другим существом. Выберите другую клетку.\n')
             except IndexError:
                 print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения\n')                
-        elif officer_move == 'вверх':
+        elif officer_move == '2':
             officer_moveX = 0
             officer_moveY = -1
             try:
@@ -151,7 +151,7 @@ while wolfs_amount > 0:
                     print('Поле занято другим существом. Выберите другую клетку.\n')
             except IndexError:
                 print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения\n') 
-        elif officer_move == 'вверх вправо':
+        elif officer_move == '3':
             officer_moveX = +1
             officer_moveY = -1
             try:
@@ -165,7 +165,7 @@ while wolfs_amount > 0:
                     print('Поле занято другим существом. Выберите другую клетку.\n')
             except IndexError:
                 print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения\n') 
-        elif officer_move == 'влево':
+        elif officer_move == '4':
             officer_moveX = -1
             officer_moveY = 0   
             try:
@@ -179,11 +179,11 @@ while wolfs_amount > 0:
                     print('Поле занято другим существом. Выберите другую клетку.\n')
             except IndexError:
                 print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения\n') 
-        elif officer_move == 'остаться на месте':
+        elif officer_move == '0':
             officer_moveX = 0
             officer_moveY = 0
             flag_officer = True
-        elif officer_move == 'вправо':
+        elif officer_move == '5':
             officer_moveX = +1
             officer_moveY = 0
             try:
@@ -197,7 +197,7 @@ while wolfs_amount > 0:
                     print('Поле занято другим существом. Выберите другую клетку.\n')
             except IndexError:
                 print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения\n') 
-        elif officer_move == 'вниз влево':
+        elif officer_move == '6':
             officer_moveX = -1
             officer_moveY = +1
             try:
@@ -211,7 +211,7 @@ while wolfs_amount > 0:
                     print('Поле занято другим существом. Выберите другую клетку.\n')
             except IndexError:
                 print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения\n') 
-        elif officer_move == 'вниз':
+        elif officer_move == '7':
             officer_moveX = 0
             officer_moveY = +1
             try:
@@ -225,7 +225,7 @@ while wolfs_amount > 0:
                     print('Поле занято другим существом. Выберите другую клетку.\n')
             except IndexError:
                 print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения\n') 
-        elif officer_move == 'вниз вправо':
+        elif officer_move == '8':
             officer_moveX = +1
             officer_moveY = +1
             try:
@@ -259,11 +259,11 @@ while wolfs_amount > 0:
     officer_attack = 0
     flag_officer_attack = False
     while flag_officer_attack == False:  
-        officer_attack = input('В каком направлении атакует офицер? Возможные варианты: вверх влево, вверх вправо, вниз влево, вниз вправо, пропуск атаки.\n')
-        if officer_attack == 'пропуск атаки':
+        officer_attack = input('В каком направлении атакует офицер? Возможные варианты: 1 - вверх влево, 2 - вверх вправо, 3 - вниз влево, 4 - вниз вправо, 0 - пропуск атаки.\n')
+        if officer_attack == '0':
             flag_officer_attack == True
             break
-        elif officer_attack == 'вверх влево':
+        elif officer_attack == '1':
             officer_attack_x = -1
             officer_attack_y = -1
             try:
@@ -289,7 +289,7 @@ while wolfs_amount > 0:
                     print('Выберите клетку для атаки, на которой присутствует волк.\n')
             except IndexError:
                 print('Вы вышли за границы игрового поля. Введите существующую клетку для атаки\n')    
-        elif officer_attack == 'вверх вправо':
+        elif officer_attack == '2':
             officer_attack_x = +1
             officer_attack_y = -1
             try:
@@ -315,7 +315,7 @@ while wolfs_amount > 0:
                     print('Выберите клетку для атаки, на которой присутствует волк.\n')
             except IndexError:
                 print('Вы вышли за границы игрового поля. Введите существующую клетку для атаки\n') 
-        elif officer_attack == 'вниз влево':
+        elif officer_attack == '3':
             officer_attack_x = -1
             officer_attack_y = +1
             try:
@@ -341,7 +341,7 @@ while wolfs_amount > 0:
                     print('Выберите клетку для атаки, на которой присутствует волк.\n')
             except IndexError:
                 print('Вы вышли за границы игрового поля. Введите существующую клетку для атаки\n') 
-        elif officer_attack == 'вниз вправо':
+        elif officer_attack == '4':
             officer_attack_x = +1
             officer_attack_y = +1
             try:
@@ -388,8 +388,8 @@ while wolfs_amount > 0:
     horse_moveY = 0
     flag_horse = False
     while flag_horse == False:
-        horse_move = input('Куда ходит конь? Возможные варианты: вверх на 2 и влево на 1, вверх на 2 и вправо на 1, влево на 2 и вверх на 1, влево на 2 и вниз на 1, вниз на 2 и влево на 1, вниз на 2 и вправо на 1, вправо на 2 и вниз на 1, вправо на 2 и вверх на 1\n')
-        if horse_move == 'вверх на 2 и влево на 1':
+        horse_move = input('Куда ходит конь? Возможные варианты: 1 - вверх на 2 и влево на 1, 2 - вверх на 2 и вправо на 1, 3 - влево на 2 и вверх на 1, 4 - влево на 2 и вниз на 1, 5 - вниз на 2 и влево на 1, 6 - вниз на 2 и вправо на 1, 7 - вправо на 2 и вниз на 1, 8 - вправо на 2 и вверх на 1\n')
+        if horse_move == '1':
             horse_moveX = -1
             horse_moveY = -2
             try:
@@ -403,7 +403,7 @@ while wolfs_amount > 0:
                     print('Указанное поле занято.\n')
             except IndexError:
                 print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.\n')            
-        elif horse_move == 'вверх на 2 и вправо на 1':
+        elif horse_move == '2':
             horse_moveX = +1
             horse_moveY = -2
             try:
@@ -417,7 +417,7 @@ while wolfs_amount > 0:
                     print('Указанное поле занято.\n')
             except IndexError:
                 print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.\n')      
-        elif horse_move == 'влево на 2 и вверх на 1':
+        elif horse_move == '3':
             horse_moveX = -1
             horse_moveY = -1
             try:
@@ -431,7 +431,7 @@ while wolfs_amount > 0:
                     print('Указанное поле занято.\n')
             except IndexError:
                 print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.\n')  
-        elif horse_move == 'влево на 2 и вниз на 1':
+        elif horse_move == '4':
             horse_moveX = -2
             horse_moveY = +1  
             try:
@@ -445,7 +445,7 @@ while wolfs_amount > 0:
                     print('Указанное поле занято.\n')
             except IndexError:
                 print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.\n')  
-        elif horse_move == 'вниз на 2 и влево на 1':
+        elif horse_move == '5':
             horse_moveX = -1
             horse_moveY = +2
             try:
@@ -459,7 +459,7 @@ while wolfs_amount > 0:
                     print('Указанное поле занято.\n')
             except IndexError:
                 print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.\n')  
-        elif horse_move == 'вниз на 2 и вправо на 1':
+        elif horse_move == '6':
             horse_moveX = +1
             horse_moveY = +2
             try:
@@ -473,7 +473,7 @@ while wolfs_amount > 0:
                     print('Указанное поле занято.\n')
             except IndexError:
                 print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.\n') 
-        elif horse_move == 'вправо на 2 и вниз на 1':
+        elif horse_move == '7':
             horse_moveX = +2
             horse_moveY = +1
             try:
@@ -487,7 +487,7 @@ while wolfs_amount > 0:
                     print('Указанное поле занято.\n')
             except IndexError:
                 print('Вы вышли за границы игрового поля. Введите существующую клетку для перемещения коня.\n') 
-        elif horse_move == 'вправо на 2 и вверх на 1':
+        elif horse_move == '8':
             horse_moveX = +2
             horse_moveY = -1
             try:
@@ -521,11 +521,11 @@ while wolfs_amount > 0:
     horse_attack = 0
     flag_horse_attack = False
     while flag_horse_attack == False:  
-        horse_attack = input('В каком направлении атакует конь? Возможные варианты: вверх на 2 и влево на 1, вверх на 2 и вправо на 1, влево на 2 и вверх на 1, влево на 2 и вниз на 1, вниз на 2 и влево на 1, вниз на 2 и вправо на 1, вправо на 2 и вниз на 1, вправо на 2 и вверх на 1, пропуск атаки.\n')
-        if horse_attack == 'пропуск атаки':
+        horse_attack = input('В каком направлении атакует конь? Возможные варианты: 1 - вверх на 2 и влево на 1, 2 - вверх на 2 и вправо на 1, 3 - влево на 2 и вверх на 1, 4 - влево на 2 и вниз на 1, 5 - вниз на 2 и влево на 1, 6 - вниз на 2 и вправо на 1, 7 - вправо на 2 и вниз на 1, 8 - вправо на 2 и вверх на 1, 0 - пропуск атаки.\n')
+        if horse_attack == '0':
             flag_horse_attack = True
             break
-        elif horse_attack == 'вверх на 2 и влево на 1':
+        elif horse_attack == '1':
             horse_attack_x = -1
             horse_attack_y = -2
             try:   
@@ -563,7 +563,7 @@ while wolfs_amount > 0:
                     print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
             except IndexError:
                 print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.\n')
-        elif horse_attack == 'вверх на 2 и вправо на 1':
+        elif horse_attack == '2':
             horse_attack_x = +1
             horse_attack_y = -2
             try:   
@@ -601,7 +601,7 @@ while wolfs_amount > 0:
                     print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
             except IndexError:
                 print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.\n')
-        elif horse_attack == 'влево на 2 и вверх на 1':
+        elif horse_attack == '3':
             horse_attack_x = -2
             horse_attack_y = -1
             try:   
@@ -639,7 +639,7 @@ while wolfs_amount > 0:
                     print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
             except IndexError:
                 print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.\n') 
-        elif horse_attack == 'влево на 2 и вниз на 1':
+        elif horse_attack == '4':
             horse_attack_x = -2
             horse_attack_y = +1
             try:   
@@ -677,7 +677,7 @@ while wolfs_amount > 0:
                     print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
             except IndexError:
                 print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.\n')
-        elif horse_attack == 'вниз на 2 и влево на 1':
+        elif horse_attack == '5':
             horse_attack_x = -1
             horse_attack_y = +2
             try:   
@@ -715,7 +715,7 @@ while wolfs_amount > 0:
                     print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
             except IndexError:
                 print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.\n')  
-        elif horse_attack == 'вниз на 2 и вправо на 1':
+        elif horse_attack == '6':
             horse_attack_x = +1
             horse_attack_y = +2
             try:   
@@ -753,7 +753,7 @@ while wolfs_amount > 0:
                     print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
             except IndexError:
                 print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.\n')
-        elif horse_attack == 'вправо на 2 и вниз на 1':
+        elif horse_attack == '7':
             horse_attack_x = +2
             horse_attack_y = +1
             try:   
@@ -791,7 +791,7 @@ while wolfs_amount > 0:
                     print('Выберите корректную цель для атаки. Если она отсутствует - пропустите ход.\n')
             except IndexError:
                 print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.\n')
-        elif horse_attack == 'вправо на 2 и вверх на 1':
+        elif horse_attack == '8':
             horse_attack_x = +2
             horse_attack_y = -1
             try:   
@@ -830,7 +830,7 @@ while wolfs_amount > 0:
             except IndexError:
                 print('Поле атаки выходит за границы игрового поля. Введите существующую клетку для атаки.\n')
         else:
-                    print('Введите корректное направление атаки из приведенного списка.\n')  
+            print('Введите корректное направление атаки из приведенного списка.\n')  
 
     #Печатаем пустую строку для лучшей читабельности
     print('\n')
